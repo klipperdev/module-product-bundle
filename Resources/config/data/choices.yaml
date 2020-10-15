@@ -1,0 +1,13 @@
+product_type:
+    -   value: service
+        label: Service
+        translations:
+            fr: { label: Service }
+    -   value: consumable
+        label: Consumable
+        translations:
+            fr: { label: Consommable }
+    -   value: storable_item
+        label: Storable item
+        translations:
+            fr: { label: Article stockable }
