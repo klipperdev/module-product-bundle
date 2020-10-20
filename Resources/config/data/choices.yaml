@@ -11,3 +11,17 @@ product_type:
         label: Storable item
         translations:
             fr: { label: Article stockable }
+
+attribute_type:
+    -   value: list
+        label: List
+        translations:
+            fr: { label: Liste }
+    -   value: color
+        label: Color
+        translations:
+            fr: { label: Couleur }
+    -   value: radio
+        label: Radio
+        translations:
+            fr: { label: Radio }
