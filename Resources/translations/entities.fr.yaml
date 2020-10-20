@@ -1,0 +1,43 @@
+# Attribute
+attribute.name: Attribut
+attribute.name.plural: Attributs
+attribute.associations.type: Type
+
+# Attribute Item
+attribute_item.name: Valeur d'attribut
+attribute_item.name.plural: Valeurs d'attribut
+attribute_item.fields.fax: Couleur
+attribute.associations.attribute: Attribut
+
+# Brand
+brand.name: Marque
+brand.name.plural: Marques
+
+# Product range
+product_range.name: Gamme de produits
+product_range.name.plural: Gammes de produits
+
+# Product
+product.name: Produit
+product.name.plural: Produits
+product.fields.bar_code: Code barre
+product.fields.can_be_buy: Peut-être
+product.fields.can_be_sell: Peut-être vendu
+product.fields.code: Code
+product.fields.color: Couleur
+product.fields.internal_reference: Référence interne
+product.fields.part_number: Numéro d'article
+product.fields.price: Prix
+product.associations.brand: Marque
+product.associations.product_type: Type de produit
+
+# Product supplier
+product_supplier.name: Fournisseur du produit
+product_supplier.name.plural: Fournisseurs du produit
+product_supplier.fields.quantity: Quantité
+product_supplier.fields.reference: Référence
+product_supplier.associations.supplier: Fournisseur
+
+# Price book
+price_book.name: Catalogue de prix
+price_book.name.plural: Catalogues de prix
