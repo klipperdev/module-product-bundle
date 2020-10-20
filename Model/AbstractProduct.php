@@ -45,17 +45,27 @@ abstract class AbstractProduct implements ProductInterface
      *
      * @Serializer\Expose
      */
-    protected ?string $code = null;
+    protected ?string $reference = null;
 
     /**
-     * @ORM\Column(type="string", length=128, nullable=true)
+     * @ORM\Column(type="string", length=13, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="128")
+     * @Assert\Length(min="0", max="13")
      *
      * @Serializer\Expose
      */
-    protected ?string $partNumber = null;
+    protected ?string $codeEan13 = null;
+
+    /**
+     * @ORM\Column(type="string", length=12, nullable=true)
+     *
+     * @Assert\Type(type="string")
+     * @Assert\Length(min="0", max="12")
+     *
+     * @Serializer\Expose
+     */
+    protected ?string $codeUpc = null;
 
     /**
      * @ORM\Column(type="string", length=7, nullable=true)
@@ -85,26 +95,6 @@ abstract class AbstractProduct implements ProductInterface
      * @Serializer\Expose
      */
     protected bool $canBeBuy = false;
-
-    /**
-     * @ORM\Column(type="string", length=128, nullable=true)
-     *
-     * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="128")
-     *
-     * @Serializer\Expose
-     */
-    protected ?string $internalReference = null;
-
-    /**
-     * @ORM\Column(type="string", length=128, nullable=true)
-     *
-     * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="128")
-     *
-     * @Serializer\Expose
-     */
-    protected ?string $barCode = null;
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
@@ -148,28 +138,40 @@ abstract class AbstractProduct implements ProductInterface
      */
     protected ?ProductRangeInterface $productRange = null;
 
-    public function getCode(): ?string
+    public function setReference(?string $reference): self
     {
-        return $this->code;
-    }
-
-    public function setCode(?string $code): self
-    {
-        $this->code = $code;
+        $this->reference = $reference;
 
         return $this;
     }
 
-    public function getPartNumber(): ?string
+    public function getReference(): ?string
     {
-        return $this->partNumber;
+        return $this->reference;
     }
 
-    public function setPartNumber(?string $partNumber): self
+    public function setCodeEan13(?string $codeEan13): self
     {
-        $this->partNumber = $partNumber;
+        $this->codeEan13 = $codeEan13;
 
         return $this;
+    }
+
+    public function getCodeEan13(): ?string
+    {
+        return $this->codeEan13;
+    }
+
+    public function setCodeUpc(?string $codeUpc): self
+    {
+        $this->codeUpc = $codeUpc;
+
+        return $this;
+    }
+
+    public function getCodeUpc(): ?string
+    {
+        return $this->codeUpc;
     }
 
     public function getColor(): ?string
@@ -204,30 +206,6 @@ abstract class AbstractProduct implements ProductInterface
     public function setCanBeBuy(bool $canBeBuy): self
     {
         $this->canBeBuy = $canBeBuy;
-
-        return $this;
-    }
-
-    public function getInternalReference(): ?string
-    {
-        return $this->internalReference;
-    }
-
-    public function setInternalReference(?string $internalReference): self
-    {
-        $this->internalReference = $internalReference;
-
-        return $this;
-    }
-
-    public function getBarCode(): ?string
-    {
-        return $this->barCode;
-    }
-
-    public function setBarCode(?string $barCode): self
-    {
-        $this->barCode = $barCode;
 
         return $this;
     }
