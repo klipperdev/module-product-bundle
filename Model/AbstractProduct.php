@@ -138,6 +138,18 @@ abstract class AbstractProduct implements ProductInterface
      */
     protected ?ProductRangeInterface $productRange = null;
 
+    /**
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Module\ProductBundle\Model\ProductCombinationInterface",
+     *     fetch="EXTRA_LAZY"
+     * )
+     * @ORM\JoinColumn(onDelete="SET NULL")
+     *
+     * @Serializer\MaxDepth(depth=1)
+     * @Serializer\Expose
+     */
+    protected ?ProductCombinationInterface $defaultProductCombination = null;
+
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
@@ -266,6 +278,18 @@ abstract class AbstractProduct implements ProductInterface
     public function setProductRange(?ProductRangeInterface $productRange): self
     {
         $this->productRange = $productRange;
+
+        return $this;
+    }
+
+    public function getDefaultProductCombination(): ?ProductCombinationInterface
+    {
+        return $this->defaultProductCombination;
+    }
+
+    public function setDefaultProductCombination(?ProductCombinationInterface $defaultProductCombination): self
+    {
+        $this->defaultProductCombination = $defaultProductCombination;
 
         return $this;
     }

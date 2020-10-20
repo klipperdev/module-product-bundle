@@ -108,4 +108,11 @@ interface ProductInterface extends
     public function setProductRange(?ProductRangeInterface $productRange);
 
     public function getProductRange(): ?ProductRangeInterface;
+
+    /**
+     * @return static
+     */
+    public function setDefaultProductCombination(?ProductCombinationInterface $defaultProductCombination);
+
+    public function getDefaultProductCombination(): ?ProductCombinationInterface;
 }
