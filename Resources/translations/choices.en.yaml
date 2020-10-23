@@ -1,0 +1,14 @@
+# Product List Rule Applied On
+product_list_rule_applied_on.all_products: All products
+product_list_rule_applied_on.product_range: Product range
+product_list_rule_applied_on.product: Product
+product_list_rule_applied_on.product_combination: Product combination
+
+# Product List Rule Price Calculation
+product_list_rule_price_calculation.flat_rate: Flat rate
+product_list_rule_price_calculation.percent: Discount percent
+product_list_rule_price_calculation.formula: Formula
+
+# Product List Rule Based On
+product_list_rule_based_on.selling_price: Selling price
+product_list_rule_based_on.other_price_list: Other price list

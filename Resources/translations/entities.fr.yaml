@@ -39,5 +39,9 @@ product_supplier.fields.reference: Référence
 product_supplier.associations.supplier: Fournisseur
 
 # Price book
-price_book.name: Catalogue de prix
-price_book.name.plural: Catalogues de prix
+price_list.name: Liste de prix
+price_list.name.plural: Listes de prix
+
+# Price list rule
+price_list_rule.name: Règle de liste de prix
+price_list_rule.name.plural: Règles de liste de prix

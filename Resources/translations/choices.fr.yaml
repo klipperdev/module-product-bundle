@@ -1,0 +1,14 @@
+# Product List Rule Applied Choice
+product_list_rule_applied_on.all_products: Tous les produits
+product_list_rule_applied_on.product_range: Gamme de produit
+product_list_rule_applied_on.product: Produit
+product_list_rule_applied_on.product_combination: Déclinaison de produit
+
+# Product List Rule Price Calculation
+product_list_rule_price_calculation.flat_rate: Forfait
+product_list_rule_price_calculation.percent: Pourcentage de remise
+product_list_rule_price_calculation.formula: Formule
+
+# Product List Rule Based On
+product_list_rule_based_on.selling_price: Prix de vente
+product_list_rule_based_on.other_price_list: Autre liste de prix
