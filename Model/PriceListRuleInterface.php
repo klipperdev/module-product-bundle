@@ -28,6 +28,13 @@ interface PriceListRuleInterface extends
     /**
      * @return static
      */
+    public function setPriceList(?PriceListInterface $priceList);
+
+    public function getPriceList(): ?PriceListInterface;
+
+    /**
+     * @return static
+     */
     public function setAppliedOn(?string $appliedOn);
 
     public function getAppliedOn(): ?string;

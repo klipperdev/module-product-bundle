@@ -29,6 +29,16 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     use TimestampableTrait;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\PriceListInterface")
+     * @ORM\JoinColumn(onDelete="CASCADE")
+     *
+     * @Assert\NotBlank
+     *
+     * @Serializer\Expose
+     */
+    protected ?PriceListInterface $priceList = null;
+
+    /**
      * @ORM\Column(type="string", length=128, nullable=true)
      *
      * @KlipperProductAssert\ProductListRuleAppliedOnChoice
@@ -265,6 +275,18 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      * @Serializer\Expose
      */
     protected ?float $formulaMaximumMargin = null;
+
+    public function getPriceList(): ?PriceListInterface
+    {
+        return $this->priceList;
+    }
+
+    public function setPriceList(?PriceListInterface $priceList): self
+    {
+        $this->priceList = $priceList;
+
+        return $this;
+    }
 
     public function getAppliedOn(): ?string
     {
