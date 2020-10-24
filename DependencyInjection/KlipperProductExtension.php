@@ -28,5 +28,6 @@ class KlipperProductExtension extends Extension
     {
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('price_manager.xml');
+        $loader->load('doctrine_subscriber.xml');
     }
 }
