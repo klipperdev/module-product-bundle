@@ -45,3 +45,16 @@ price_list.name.plural: Price lists
 # Price list rule
 price_list_rule.name: Price list rule
 price_list_rule.name.plural: Price list rules
+price_list_rule.fields.applied_on: Applied on
+price_list_rule.fields.minimum_quantity: Minimum quantity
+price_list_rule.fields.start_at: Start at
+price_list_rule.fields.end_at: End at
+price_list_rule.fields.price_calculation: Price calculation
+price_list_rule.fields.value: Value
+price_list_rule.fields.formula_based_on: Based on
+price_list_rule.fields.formula_price_list: Price list
+price_list_rule.fields.formula_price_reduction: Price reduction
+price_list_rule.fields.formula_rounded_method: Rounded method
+price_list_rule.fields.formula_margin: Margin
+price_list_rule.fields.formula_minimum_margin: Minimum margin
+price_list_rule.fields.formula_maximum_margin: Maximum margin
