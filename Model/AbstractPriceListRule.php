@@ -173,7 +173,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      *
      * @Serializer\Expose
      */
-    protected ?string $basedOn = null;
+    protected ?string $formulaBasedOn = null;
 
     /**
      * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\PriceListInterface")
@@ -183,7 +183,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      *     message="This value should be blank."
      * )
      * @Assert\Expression(
-     *     expression="!(this.getPriceCalculation() in ['formula'] && this.getBasedOn() in ['other_price_list'] && !value)",
+     *     expression="!(this.getPriceCalculation() in ['formula'] && this.getFormulaBasedOn() in ['other_price_list'] && !value)",
      *     message="This value should not be blank."
      * )
      *
@@ -396,14 +396,14 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
         return $this;
     }
 
-    public function getBasedOn(): ?string
+    public function getFormulaBasedOn(): ?string
     {
-        return $this->basedOn;
+        return $this->formulaBasedOn;
     }
 
-    public function setBasedOn(?string $basedOn): self
+    public function setFormulaBasedOn(?string $formulaBasedOn): self
     {
-        $this->basedOn = $basedOn;
+        $this->formulaBasedOn = $formulaBasedOn;
 
         return $this;
     }

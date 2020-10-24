@@ -98,9 +98,9 @@ interface PriceListRuleInterface extends
     /**
      * @return static
      */
-    public function setBasedOn(?string $basedOn);
+    public function setFormulaBasedOn(?string $formulaBasedOn);
 
-    public function getBasedOn(): ?string;
+    public function getFormulaBasedOn(): ?string;
 
     /**
      * @return static
