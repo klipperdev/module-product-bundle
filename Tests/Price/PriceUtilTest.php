@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Klipper\Module\ProductBundle\Price;
+namespace Klipper\Module\ProductBundle\Tests\Price;
 
 use PHPUnit\Framework\TestCase;
 
