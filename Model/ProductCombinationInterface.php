@@ -55,4 +55,11 @@ interface ProductCombinationInterface extends
     public function setCodeUpc(?string $codeUpc);
 
     public function getCodeUpc(): ?string;
+
+    /**
+     * @return static
+     */
+    public function setPrice(?float $price);
+
+    public function getPrice(): ?float;
 }

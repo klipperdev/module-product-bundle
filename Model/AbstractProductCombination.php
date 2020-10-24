@@ -97,6 +97,15 @@ abstract class AbstractProductCombination implements ProductCombinationInterface
      */
     protected ?string $codeUpc = null;
 
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     *
+     * @Assert\Type(type="float")
+     *
+     * @Serializer\Expose
+     */
+    protected ?float $price = null;
+
     public function getAttributeItems(): Collection
     {
         return $this->attributeItems ?: $this->attributeItems = new ArrayCollection();
@@ -136,5 +145,17 @@ abstract class AbstractProductCombination implements ProductCombinationInterface
     public function getCodeUpc(): ?string
     {
         return $this->codeUpc;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(?float $price): self
+    {
+        $this->price = $price;
+
+        return $this;
     }
 }
