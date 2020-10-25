@@ -11,6 +11,7 @@
 
 namespace Klipper\Module\ProductBundle\Model;
 
+use Klipper\Component\Model\Traits\NameableInterface;
 use Klipper\Component\Model\Traits\OrganizationalRequiredInterface;
 use Klipper\Component\Model\Traits\TimestampableInterface;
 use Klipper\Component\Model\Traits\UserTrackableInterface;
@@ -23,6 +24,7 @@ use Klipper\Contracts\Model\IdInterface;
  */
 interface BrandInterface extends
     IdInterface,
+    NameableInterface,
     OrganizationalRequiredInterface,
     TimestampableInterface,
     UserTrackableInterface
