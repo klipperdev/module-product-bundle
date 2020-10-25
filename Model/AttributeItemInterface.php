@@ -11,11 +11,11 @@
 
 namespace Klipper\Module\ProductBundle\Model;
 
+use Klipper\Component\Model\Traits\IdInterface;
 use Klipper\Component\Model\Traits\LabelableInterface;
 use Klipper\Component\Model\Traits\OrganizationalRequiredInterface;
 use Klipper\Component\Model\Traits\SortableInterface;
 use Klipper\Component\Model\Traits\TimestampableInterface;
-use Klipper\Contracts\Model\IdInterface;
 
 /**
  * Attribute item interface.

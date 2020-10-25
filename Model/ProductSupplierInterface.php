@@ -11,10 +11,10 @@
 
 namespace Klipper\Module\ProductBundle\Model;
 
+use Klipper\Component\Model\Traits\IdInterface;
 use Klipper\Component\Model\Traits\OrganizationalRequiredInterface;
 use Klipper\Component\Model\Traits\TimestampableInterface;
 use Klipper\Component\Model\Traits\UserTrackableInterface;
-use Klipper\Contracts\Model\IdInterface;
 use Klipper\Module\PartnerBundle\Model\AccountInterface;
 use Klipper\Module\ProductBundle\Model\Traits\ProductableRequiredInterface;
 
