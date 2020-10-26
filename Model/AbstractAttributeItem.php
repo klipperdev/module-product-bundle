@@ -45,10 +45,11 @@ abstract class AbstractAttributeItem implements AttributeItemInterface
     protected ?AttributeInterface $attribute = null;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=9, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(max=255)
+     * @Assert\Length(min="0", max="9")
+     * @Assert\Regex(pattern="/^#[0-9a-f]{8}$/i")
      *
      * @Serializer\Expose
      */

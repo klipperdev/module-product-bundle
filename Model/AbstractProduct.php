@@ -68,11 +68,11 @@ abstract class AbstractProduct implements ProductInterface
     protected ?string $codeUpc = null;
 
     /**
-     * @ORM\Column(type="string", length=7, nullable=true)
+     * @ORM\Column(type="string", length=9, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="7")
-     * @Assert\Regex(pattern="/^#[0-9a-f]{6}$/i")
+     * @Assert\Length(min="0", max="9")
+     * @Assert\Regex(pattern="/^#[0-9a-f]{8}$/i")
      *
      * @Serializer\Expose
      */
