@@ -23,7 +23,7 @@ trait ProductCombinationableTrait
     /**
      * @ORM\ManyToOne(
      *     targetEntity="Klipper\Module\ProductBundle\Model\ProductCombinationInterface",
-     *     fetch="EXTRA_LAZY"
+     *     fetch="EAGER"
      * )
      *
      * @Serializer\MaxDepth(depth=1)

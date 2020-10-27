@@ -23,7 +23,7 @@ trait ProductableTrait
     /**
      * @ORM\ManyToOne(
      *     targetEntity="Klipper\Module\ProductBundle\Model\ProductInterface",
-     *     fetch="EXTRA_LAZY"
+     *     fetch="EAGER"
      * )
      *
      * @Serializer\MaxDepth(depth=1)
