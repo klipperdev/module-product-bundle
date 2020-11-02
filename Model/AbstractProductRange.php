@@ -11,6 +11,7 @@
 
 namespace Klipper\Module\ProductBundle\Model;
 
+use JMS\Serializer\Annotation as Serializer;
 use Klipper\Component\Model\Traits\LabelableTrait;
 use Klipper\Component\Model\Traits\NameableTrait;
 use Klipper\Component\Model\Traits\OrganizationalRequiredTrait;
@@ -22,6 +23,8 @@ use Klipper\Component\Model\Traits\UserTrackableTrait;
  * Product range model.
  *
  * @author François Pluchino <francois.pluchino@klipper.dev>
+ *
+ * @Serializer\ExclusionPolicy("all")
  */
 abstract class AbstractProductRange implements ProductRangeInterface
 {

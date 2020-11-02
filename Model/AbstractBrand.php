@@ -11,6 +11,7 @@
 
 namespace Klipper\Module\ProductBundle\Model;
 
+use JMS\Serializer\Annotation as Serializer;
 use Klipper\Component\Model\Traits\NameableTrait;
 use Klipper\Component\Model\Traits\OrganizationalRequiredTrait;
 use Klipper\Component\Model\Traits\TimestampableTrait;
@@ -20,6 +21,8 @@ use Klipper\Component\Model\Traits\UserTrackableTrait;
  * Brand model.
  *
  * @author François Pluchino <francois.pluchino@klipper.dev>
+ *
+ * @Serializer\ExclusionPolicy("all")
  */
 abstract class AbstractBrand implements BrandInterface
 {

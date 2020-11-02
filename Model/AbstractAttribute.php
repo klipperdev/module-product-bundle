@@ -24,6 +24,8 @@ use Klipper\Component\Model\Traits\TimestampableTrait;
  * Attribute model.
  *
  * @author François Pluchino <francois.pluchino@klipper.dev>
+ *
+ * @Serializer\ExclusionPolicy("all")
  */
 abstract class AbstractAttribute implements AttributeInterface
 {

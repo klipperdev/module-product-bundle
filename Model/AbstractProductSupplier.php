@@ -24,6 +24,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Product supplier model.
  *
  * @author François Pluchino <francois.pluchino@klipper.dev>
+ *
+ * @Serializer\ExclusionPolicy("all")
  */
 abstract class AbstractProductSupplier implements ProductSupplierInterface
 {

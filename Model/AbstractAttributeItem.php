@@ -23,6 +23,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Attribute item model.
  *
  * @author François Pluchino <francois.pluchino@klipper.dev>
+ *
+ * @Serializer\ExclusionPolicy("all")
  */
 abstract class AbstractAttributeItem implements AttributeItemInterface
 {

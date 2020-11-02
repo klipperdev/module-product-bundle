@@ -22,6 +22,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Price list rule model.
  *
  * @author François Pluchino <francois.pluchino@klipper.dev>
+ *
+ * @Serializer\ExclusionPolicy("all")
  */
 abstract class AbstractPriceListRule implements PriceListRuleInterface
 {

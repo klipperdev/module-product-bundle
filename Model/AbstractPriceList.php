@@ -11,6 +11,7 @@
 
 namespace Klipper\Module\ProductBundle\Model;
 
+use JMS\Serializer\Annotation as Serializer;
 use Klipper\Component\Model\Traits\CurrencyableTrait;
 use Klipper\Component\Model\Traits\LabelableTrait;
 use Klipper\Component\Model\Traits\OrganizationalRequiredTrait;
@@ -21,6 +22,8 @@ use Klipper\Component\Model\Traits\UserTrackableTrait;
  * Price list model.
  *
  * @author François Pluchino <francois.pluchino@klipper.dev>
+ *
+ * @Serializer\ExclusionPolicy("all")
  */
 abstract class AbstractPriceList implements PriceListInterface
 {
