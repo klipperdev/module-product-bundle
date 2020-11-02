@@ -36,7 +36,7 @@ abstract class AbstractAttributeItem implements AttributeItemInterface
     /**
      * @ORM\ManyToOne(
      *     targetEntity="Klipper\Module\ProductBundle\Model\AttributeInterface",
-     *     fetch="EXTRA_LAZY"
+     *     fetch="EAGER"
      * )
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      *

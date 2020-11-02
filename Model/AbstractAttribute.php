@@ -35,7 +35,7 @@ abstract class AbstractAttribute implements AttributeInterface
     use TimestampableTrait;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface")
+     * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface", fetch="EAGER")
      *
      * @EntityDoctrineChoice("attribute_type")
      *

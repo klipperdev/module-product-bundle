@@ -23,10 +23,9 @@ trait PriceListableTrait
     /**
      * @ORM\ManyToOne(
      *     targetEntity="Klipper\Module\ProductBundle\Model\PriceListInterface",
-     *     fetch="EXTRA_LAZY"
+     *     fetch="EAGER"
      * )
      *
-     * @Serializer\Type("AssociationId")
      * @Serializer\Expose
      */
     protected ?PriceListInterface $priceList = null;

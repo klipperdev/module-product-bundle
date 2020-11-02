@@ -26,9 +26,7 @@ trait ProductableTrait
      *     fetch="EAGER"
      * )
      *
-     * @Serializer\MaxDepth(depth=1)
      * @Serializer\Expose
-     * @Serializer\ReadOnly
      */
     protected ?ProductInterface $product = null;
 

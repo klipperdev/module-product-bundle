@@ -31,7 +31,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     use TimestampableTrait;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\PriceListInterface")
+     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\PriceListInterface", fetch="EAGER")
      * @ORM\JoinColumn(onDelete="CASCADE")
      *
      * @Assert\NotBlank
@@ -53,7 +53,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     protected ?string $appliedOn = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\ProductRangeInterface")
+     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\ProductRangeInterface", fetch="EAGER")
      *
      * @Assert\Expression(
      *     expression="!(this.getAppliedOn() in ['product_range'] && !value)",
@@ -69,7 +69,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     protected ?ProductRangeInterface $productRange = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\ProductInterface")
+     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\ProductInterface", fetch="EAGER")
      *
      * @Assert\Expression(
      *     expression="!(this.getAppliedOn() in ['product', 'product_combination'] && !value)",
@@ -85,7 +85,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     protected ?ProductInterface $product = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\ProductCombinationInterface")
+     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\ProductCombinationInterface", fetch="EAGER")
      *
      * @Assert\Expression(
      *     expression="!(this.getAppliedOn() in ['product_combination'] && !value)",
@@ -178,7 +178,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     protected ?string $formulaBasedOn = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\PriceListInterface")
+     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\PriceListInterface", fetch="EAGER")
      *
      * @Assert\Expression(
      *     expression="!(this.getPriceCalculation() not in ['formula'] && value)",

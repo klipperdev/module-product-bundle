@@ -38,13 +38,12 @@ abstract class AbstractProductCombination implements ProductCombinationInterface
     /**
      * @ORM\ManyToOne(
      *     targetEntity="Klipper\Module\ProductBundle\Model\ProductInterface",
-     *     fetch="EXTRA_LAZY"
+     *     fetch="EAGER"
      * )
      * @ORM\JoinColumn(onDelete="CASCADE")
      *
      * @Assert\NotBlank
      *
-     * @Serializer\MaxDepth(depth=1)
      * @Serializer\Expose
      */
     protected ?ProductInterface $product = null;
@@ -54,6 +53,7 @@ abstract class AbstractProductCombination implements ProductCombinationInterface
      *
      * @ORM\ManyToMany(
      *     targetEntity="Klipper\Module\ProductBundle\Model\AttributeItemInterface",
+     *     fetch="EAGER",
      *     cascade={"persist"}
      * )
      * @ORM\JoinTable(

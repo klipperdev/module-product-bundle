@@ -26,9 +26,7 @@ trait ProductCombinationableTrait
      *     fetch="EAGER"
      * )
      *
-     * @Serializer\MaxDepth(depth=1)
      * @Serializer\Expose
-     * @Serializer\ReadOnly
      */
     protected ?ProductCombinationInterface $productCombination = null;
 
