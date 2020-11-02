@@ -26,10 +26,8 @@ trait PriceListableTrait
      *     fetch="EXTRA_LAZY"
      * )
      *
-     * @Serializer\Type("Relation")
-     * @Serializer\MaxDepth(depth=1)
+     * @Serializer\Type("AssociationId")
      * @Serializer\Expose
-     * @Serializer\ReadOnly
      */
     protected ?PriceListInterface $priceList = null;
 
