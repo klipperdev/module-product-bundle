@@ -73,7 +73,7 @@ abstract class AbstractProductCombination implements ProductCombinationInterface
      * @ORM\Column(type="string", length=128, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="128")
+     * @Assert\Length(min=0, max=128)
      *
      * @Serializer\Expose
      */
@@ -83,7 +83,7 @@ abstract class AbstractProductCombination implements ProductCombinationInterface
      * @ORM\Column(type="string", length=13, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="13")
+     * @Assert\Length(min=0, max=13)
      *
      * @Serializer\Expose
      */
@@ -93,7 +93,7 @@ abstract class AbstractProductCombination implements ProductCombinationInterface
      * @ORM\Column(type="string", length=12, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="12")
+     * @Assert\Length(min=0, max=12)
      *
      * @Serializer\Expose
      */

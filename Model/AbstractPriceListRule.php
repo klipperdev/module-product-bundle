@@ -45,7 +45,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      *
      * @KlipperProductAssert\ProductListRuleAppliedOnChoice
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="128")
+     * @Assert\Length(min=0, max=128)
      * @Assert\NotBlank
      *
      * @Serializer\Expose
@@ -134,7 +134,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      *
      * @KlipperProductAssert\ProductListRulePriceCalculationChoice()
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="128")
+     * @Assert\Length(min=0, max=128)
      * @Assert\NotBlank
      *
      * @Serializer\Expose
@@ -163,7 +163,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      *
      * @KlipperProductAssert\ProductListRuleBasedOnChoice()
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="128")
+     * @Assert\Length(min=0, max=128)
      * @Assert\Expression(
      *     expression="!(this.getPriceCalculation() not in ['formula'] && value)",
      *     message="This value should be blank."

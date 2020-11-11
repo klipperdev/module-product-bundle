@@ -50,7 +50,7 @@ abstract class AbstractAttributeItem implements AttributeItemInterface
      * @ORM\Column(type="string", length=9, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="9")
+     * @Assert\Length(min=0, max=9)
      * @Assert\Regex(pattern="/^#[0-9a-f]{6,8}$/i")
      *
      * @Serializer\Expose

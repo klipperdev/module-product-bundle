@@ -43,7 +43,7 @@ abstract class AbstractProduct implements ProductInterface
      * @ORM\Column(type="string", length=128, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="128")
+     * @Assert\Length(min=0, max=128)
      *
      * @Serializer\Expose
      */
@@ -53,7 +53,7 @@ abstract class AbstractProduct implements ProductInterface
      * @ORM\Column(type="string", length=13, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="13")
+     * @Assert\Length(min=0, max=13)
      *
      * @Serializer\Expose
      */
@@ -63,7 +63,7 @@ abstract class AbstractProduct implements ProductInterface
      * @ORM\Column(type="string", length=12, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="12")
+     * @Assert\Length(min=0, max=12)
      *
      * @Serializer\Expose
      */
@@ -73,7 +73,7 @@ abstract class AbstractProduct implements ProductInterface
      * @ORM\Column(type="string", length=9, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="9")
+     * @Assert\Length(min=0, max=9)
      * @Assert\Regex(pattern="/^#[0-9a-f]{6,8}$/i")
      *
      * @Serializer\Expose
@@ -102,7 +102,7 @@ abstract class AbstractProduct implements ProductInterface
      * @ORM\Column(type="string", length=128, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="128")
+     * @Assert\Length(min=0, max=128)
      *
      * @Serializer\Expose
      */

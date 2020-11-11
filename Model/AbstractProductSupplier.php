@@ -38,7 +38,7 @@ abstract class AbstractProductSupplier implements ProductSupplierInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="255")
+     * @Assert\Length(min=0, max=255)
      *
      * @Serializer\Expose
      */
