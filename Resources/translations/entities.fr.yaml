@@ -31,6 +31,14 @@ product.fields.price: Prix
 product.associations.brand: Marque
 product.associations.product_type: Type de produit
 
+# Product combination
+product_combiation.name: Combinaison de produits
+product_combiation.name.plural: Combinaisons de produits
+product_combiation.fields.reference: Référence
+product_combiation.fields.code_ean_13: Code EAN 13
+product_combiation.fields.code_upc: Code UPC
+product_combiation.fields.price: Prix
+
 # Product supplier
 product_supplier.name: Fournisseur du produit
 product_supplier.name.plural: Fournisseurs du produit
