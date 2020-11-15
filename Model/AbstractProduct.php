@@ -18,7 +18,6 @@ use Klipper\Component\DoctrineChoice\Validator\Constraints\EntityDoctrineChoice;
 use Klipper\Component\Model\Traits\CurrencyableTrait;
 use Klipper\Component\Model\Traits\NameableTrait;
 use Klipper\Component\Model\Traits\OrganizationalRequiredTrait;
-use Klipper\Component\Model\Traits\OwnerableOptionalTrait;
 use Klipper\Component\Model\Traits\TimestampableTrait;
 use Klipper\Component\Model\Traits\UserTrackableTrait;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -35,7 +34,6 @@ abstract class AbstractProduct implements ProductInterface
     use CurrencyableTrait;
     use NameableTrait;
     use OrganizationalRequiredTrait;
-    use OwnerableOptionalTrait;
     use TimestampableTrait;
     use UserTrackableTrait;
 
