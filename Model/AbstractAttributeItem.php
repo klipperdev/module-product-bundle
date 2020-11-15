@@ -12,6 +12,7 @@
 namespace Klipper\Module\ProductBundle\Model;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use JMS\Serializer\Annotation as Serializer;
 use Klipper\Component\Model\Traits\LabelableTrait;
 use Klipper\Component\Model\Traits\OrganizationalRequiredTrait;
@@ -39,6 +40,8 @@ abstract class AbstractAttributeItem implements AttributeItemInterface
      *     fetch="EAGER"
      * )
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
+     *
+     * @Gedmo\SortableGroup
      *
      * @Assert\NotBlank()
      *
