@@ -21,7 +21,7 @@ product_range.name.plural: Gammes de produits
 product.name: Produit
 product.name.plural: Produits
 product.fields.bar_code: Code barre
-product.fields.can_be_buy: Peut-être
+product.fields.can_be_buy: Peut-être acheté
 product.fields.can_be_sell: Peut-être vendu
 product.fields.code: Code
 product.fields.color: Couleur
