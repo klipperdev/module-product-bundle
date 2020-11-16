@@ -16,6 +16,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
 use Klipper\Component\Model\Traits\OrganizationalRequiredTrait;
+use Klipper\Component\Model\Traits\SortableTrait;
 use Klipper\Component\Model\Traits\TimestampableTrait;
 use Klipper\Component\Model\Traits\UserTrackableTrait;
 use Klipper\Module\ProductBundle\Model\Traits\ProductableTrait;
@@ -32,6 +33,7 @@ abstract class AbstractProductCombination implements ProductCombinationInterface
 {
     use OrganizationalRequiredTrait;
     use ProductableTrait;
+    use SortableTrait;
     use TimestampableTrait;
     use UserTrackableTrait;
 

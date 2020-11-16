@@ -14,6 +14,7 @@ namespace Klipper\Module\ProductBundle\Model;
 use Doctrine\Common\Collections\Collection;
 use Klipper\Component\Model\Traits\IdInterface;
 use Klipper\Component\Model\Traits\OrganizationalRequiredInterface;
+use Klipper\Component\Model\Traits\SortableInterface;
 use Klipper\Component\Model\Traits\TimestampableInterface;
 use Klipper\Component\Model\Traits\UserTrackableInterface;
 use Klipper\Module\ProductBundle\Model\Traits\ProductableRequiredInterface;
@@ -27,6 +28,7 @@ interface ProductCombinationInterface extends
     IdInterface,
     OrganizationalRequiredInterface,
     ProductableRequiredInterface,
+    SortableInterface,
     TimestampableInterface,
     UserTrackableInterface
 {
