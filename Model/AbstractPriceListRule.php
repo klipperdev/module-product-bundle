@@ -110,20 +110,18 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     protected ?float $minimumQuantity = null;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      *
      * @Assert\Type(type="datetime")
-     * @Assert\NotBlank
      *
      * @Serializer\Expose
      */
     protected ?\DateTimeInterface $startAt = null;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      *
      * @Assert\Type(type="datetime")
-     * @Assert\NotBlank
      *
      * @Serializer\Expose
      */
