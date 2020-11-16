@@ -53,8 +53,8 @@ price_list.name: Liste de prix
 price_list.name.plural: Listes de prix
 
 # Price list rule
-price_list_rule.name: Règle de liste de prix
-price_list_rule.name.plural: Règles de liste de prix
+price_list_rule.name: Règle de prix
+price_list_rule.name.plural: Règles de prix
 price_list_rule.fields.applied_on: Appliqué sur
 price_list_rule.fields.minimum_quantity: Quantité minimum
 price_list_rule.fields.start_at: Commence le

@@ -53,8 +53,8 @@ price_list.name: Price list
 price_list.name.plural: Price lists
 
 # Price list rule
-price_list_rule.name: Price list rule
-price_list_rule.name.plural: Price list rules
+price_list_rule.name: Price rule
+price_list_rule.name.plural: Price rules
 price_list_rule.fields.applied_on: Applied on
 price_list_rule.fields.minimum_quantity: Minimum quantity
 price_list_rule.fields.start_at: Start at
