@@ -23,7 +23,8 @@ product.name.plural: Products
 product.fields.bar_code: Bar code
 product.fields.can_be_buy: Can be buy
 product.fields.can_be_sell: Can be sell
-product.fields.code: Code
+product.fields.code_ean13: Code EAN 13
+product.fields.code_upc: Code UPC
 product.fields.color: Color
 product.fields.internal_reference: Internal reference
 product.fields.part_number: Part number
@@ -36,7 +37,7 @@ product.associations.default_product_combination: Default combination
 product_combination.name: Product combination
 product_combination.name.plural: Product combinations
 product_combination.fields.reference: Reference
-product_combination.fields.code_ean_13: Code EAN 13
+product_combination.fields.code_ean13: Code EAN 13
 product_combination.fields.code_upc: Code UPC
 product_combination.fields.price: Price
 
