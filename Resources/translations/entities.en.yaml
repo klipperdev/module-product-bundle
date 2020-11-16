@@ -30,6 +30,7 @@ product.fields.part_number: Part number
 product.fields.price: Price
 product.associations.brand: Brand
 product.associations.product_type: Product type
+product.associations.default_product_combination: Default combination
 
 # Product combination
 product_combination.name: Product combination

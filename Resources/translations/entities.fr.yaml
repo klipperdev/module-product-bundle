@@ -38,6 +38,7 @@ product_combination.fields.reference: Référence
 product_combination.fields.code_ean_13: Code EAN 13
 product_combination.fields.code_upc: Code UPC
 product_combination.fields.price: Prix
+product.associations.default_product_combination: Combinaison par défaut
 
 # Product supplier
 product_supplier.name: Fournisseur du produit
