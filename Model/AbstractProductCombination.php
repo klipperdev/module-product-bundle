@@ -65,6 +65,8 @@ abstract class AbstractProductCombination implements ProductCombinationInterface
      *     }
      * )
      *
+     * @Assert\Count(min=1)
+     *
      * @Serializer\Expose
      */
     protected ?Collection $attributeItems = null;
