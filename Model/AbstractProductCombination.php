@@ -53,7 +53,7 @@ abstract class AbstractProductCombination implements ProductCombinationInterface
      *
      * @ORM\ManyToMany(
      *     targetEntity="Klipper\Module\ProductBundle\Model\AttributeItemInterface",
-     *     fetch="EAGER",
+     *     fetch="LAZY",
      *     cascade={"persist"}
      * )
      * @ORM\JoinTable(
