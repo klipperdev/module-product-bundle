@@ -148,7 +148,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      *     message="This value should not be blank."
      * )
      * @Assert\Expression(
-     *     expression="!(this.getPriceCalculation() in ['formula'] && value)",
+     *     expression="!(this.getPriceCalculation() in ['formula'] && null !== value)",
      *     message="This value should be blank."
      * )
      *
@@ -163,11 +163,11 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      * @Assert\Type(type="string")
      * @Assert\Length(min=0, max=128)
      * @Assert\Expression(
-     *     expression="!(this.getPriceCalculation() not in ['formula'] && value)",
+     *     expression="!(this.getPriceCalculation() not in ['formula'] && null !== value)",
      *     message="This value should be blank."
      * )
      * @Assert\Expression(
-     *     expression="!(this.getPriceCalculation() in ['formula'] && !value)",
+     *     expression="!(this.getPriceCalculation() in ['formula'] && null === value)",
      *     message="This value should not be blank."
      * )
      *
@@ -179,11 +179,11 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\PriceListInterface", fetch="EAGER")
      *
      * @Assert\Expression(
-     *     expression="!(this.getPriceCalculation() not in ['formula'] && value)",
+     *     expression="!(this.getPriceCalculation() not in ['formula'] && null !== value)",
      *     message="This value should be blank."
      * )
      * @Assert\Expression(
-     *     expression="!(this.getPriceCalculation() in ['formula'] && this.getFormulaBasedOn() in ['other_price_list'] && !value)",
+     *     expression="!(this.getPriceCalculation() in ['formula'] && this.getFormulaBasedOn() in ['other_price_list'] && null === value)",
      *     message="This value should not be blank."
      * )
      *
@@ -200,7 +200,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      *     message="This value should be blank."
      * )
      * @Assert\Expression(
-     *     expression="!(this.getPriceCalculation() in ['formula'] && !value)",
+     *     expression="!(this.getPriceCalculation() in ['formula'] && null === value)",
      *     message="This value should not be blank."
      * )
      *
@@ -213,11 +213,11 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      *
      * @Assert\Type(type="float")
      * @Assert\Expression(
-     *     expression="!(this.getPriceCalculation() not in ['formula'] && value)",
+     *     expression="!(this.getPriceCalculation() not in ['formula'] && null !== value)",
      *     message="This value should be blank."
      * )
      * @Assert\Expression(
-     *     expression="!(this.getPriceCalculation() in ['formula'] && !value)",
+     *     expression="!(this.getPriceCalculation() in ['formula'] && null === value)",
      *     message="This value should not be blank."
      * )
      *
@@ -230,11 +230,11 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      *
      * @Assert\Type(type="float")
      * @Assert\Expression(
-     *     expression="!(this.getPriceCalculation() not in ['formula'] && value)",
+     *     expression="!(this.getPriceCalculation() not in ['formula'] && null !== value)",
      *     message="This value should be blank."
      * )
      * @Assert\Expression(
-     *     expression="!(this.getPriceCalculation() in ['formula'] && !value)",
+     *     expression="!(this.getPriceCalculation() in ['formula'] && null === value)",
      *     message="This value should not be blank."
      * )
      *
@@ -247,11 +247,11 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      *
      * @Assert\Type(type="float")
      * @Assert\Expression(
-     *     expression="!(this.getPriceCalculation() not in ['formula'] && value)",
+     *     expression="!(this.getPriceCalculation() not in ['formula'] && null !== value)",
      *     message="This value should be blank."
      * )
      * @Assert\Expression(
-     *     expression="!(this.getPriceCalculation() in ['formula'] && !value)",
+     *     expression="!(this.getPriceCalculation() in ['formula'] && null === value)",
      *     message="This value should not be blank."
      * )
      *
@@ -264,11 +264,11 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      *
      * @Assert\Type(type="float")
      * @Assert\Expression(
-     *     expression="!(this.getPriceCalculation() not in ['formula'] && value)",
+     *     expression="!(this.getPriceCalculation() not in ['formula'] && null !== value)",
      *     message="This value should be blank."
      * )
      * @Assert\Expression(
-     *     expression="!(this.getPriceCalculation() in ['formula'] && !value)",
+     *     expression="!(this.getPriceCalculation() in ['formula'] && null === value)",
      *     message="This value should not be blank."
      * )
      *
