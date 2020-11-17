@@ -66,5 +66,5 @@ price_list_rule.fields.formula_price_list: Liste de prix
 price_list_rule.fields.formula_price_reduction: Réduction sur le prix
 price_list_rule.fields.formula_rounded_method: Méthode d'arrondi
 price_list_rule.fields.formula_margin: Marge
-price_list_rule.fields.formula_minimum_margin: Mage minimum
+price_list_rule.fields.formula_minimum_margin: Marge minimum
 price_list_rule.fields.formula_maximum_margin: Marge maximum
