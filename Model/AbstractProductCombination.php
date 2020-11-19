@@ -47,6 +47,7 @@ abstract class AbstractProductCombination implements ProductCombinationInterface
      * @Assert\NotBlank
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?ProductInterface $product = null;
 
@@ -70,6 +71,7 @@ abstract class AbstractProductCombination implements ProductCombinationInterface
      * @Assert\Count(min=1)
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(2)
      */
     protected ?Collection $attributeItems = null;
 

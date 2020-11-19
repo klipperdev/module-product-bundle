@@ -40,6 +40,7 @@ abstract class AbstractAttribute implements AttributeInterface
      * @EntityDoctrineChoice("attribute_type")
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     private ?ChoiceInterface $type = null;
 

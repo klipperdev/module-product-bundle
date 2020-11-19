@@ -37,6 +37,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      * @Assert\NotBlank
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?PriceListInterface $priceList = null;
 
@@ -65,6 +66,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      * )
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?ProductRangeInterface $productRange = null;
 
@@ -81,6 +83,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      * )
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?ProductInterface $product = null;
 
@@ -97,6 +100,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      * )
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?ProductCombinationInterface $productCombination = null;
 
@@ -188,6 +192,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      * )
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?PriceListInterface $formulaPriceList = null;
 

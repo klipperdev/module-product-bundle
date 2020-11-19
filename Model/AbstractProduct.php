@@ -119,6 +119,7 @@ abstract class AbstractProduct implements ProductInterface
      * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\BrandInterface", fetch="EAGER")
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?BrandInterface $brand = null;
 
@@ -128,6 +129,7 @@ abstract class AbstractProduct implements ProductInterface
      * @EntityDoctrineChoice("product_type")
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?ChoiceInterface $productType = null;
 
@@ -135,6 +137,7 @@ abstract class AbstractProduct implements ProductInterface
      * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\ProductRangeInterface", fetch="EAGER")
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?ProductRangeInterface $productRange = null;
 
@@ -146,6 +149,7 @@ abstract class AbstractProduct implements ProductInterface
      * @ORM\JoinColumn(onDelete="SET NULL")
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?ProductCombinationInterface $defaultProductCombination = null;
 

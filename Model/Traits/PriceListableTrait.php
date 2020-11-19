@@ -27,6 +27,7 @@ trait PriceListableTrait
      * )
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?PriceListInterface $priceList = null;
 

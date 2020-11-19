@@ -46,6 +46,7 @@ abstract class AbstractAttributeItem implements AttributeItemInterface
      * @Assert\NotBlank()
      *
      * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
      */
     protected ?AttributeInterface $attribute = null;
 
