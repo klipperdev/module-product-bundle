@@ -33,13 +33,13 @@ product.associations.brand: Marque
 product.associations.product_type: Type de produit
 
 # Product combination
-product_combination.name: Combinaison de produits
-product_combination.name.plural: Combinaisons de produits
+product_combination.name: Déclinaison de produits
+product_combination.name.plural: Déclinaisons de produits
 product_combination.fields.reference: Référence
 product_combination.fields.code_ean13: Code EAN 13
 product_combination.fields.code_upc: Code UPC
 product_combination.fields.price: Prix
-product.associations.default_product_combination: Combinaison par défaut
+product.associations.default_product_combination: Déclinaison par défaut
 
 # Product supplier
 product_supplier.name: Fournisseur du produit
