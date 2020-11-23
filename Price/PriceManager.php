@@ -11,14 +11,14 @@
 
 namespace Klipper\Module\ProductBundle\Price;
 
-use Doctrine\ORM\EntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Klipper\Component\DoctrineExtra\Util\ManagerUtils;
-use Klipper\Module\ProductBundle\Choice\ProductListRuleAppliedOn;
+use Klipper\Module\ProductBundle\Exception\InvalidArgumentException;
 use Klipper\Module\ProductBundle\Model\PriceListInterface;
 use Klipper\Module\ProductBundle\Model\PriceListRuleInterface;
 use Klipper\Module\ProductBundle\Model\ProductCombinationInterface;
 use Klipper\Module\ProductBundle\Model\ProductInterface;
+use Klipper\Module\ProductBundle\Repository\PriceListRuleRepositoryInterface;
 
 /**
  * @author François Pluchino <francois.pluchino@klipper.dev>
@@ -113,13 +113,14 @@ class PriceManager implements PriceManagerInterface
     private function getRules($priceListId, int $minimumQuantity): array
     {
         $em = ManagerUtils::getRequiredManager($this->doctrine, PriceListRuleInterface::class);
-        /** @var EntityRepository $repo */
         $repo = $em->getRepository(PriceListRuleInterface::class);
-        $orderedRules = [];
 
-        /** @var PriceListRuleInterface[] $rules */
-        $rules = $repo->createQueryBuilder('plr')
-            ->select('plr')
+        if (!$repo instanceof PriceListRuleRepositoryInterface) {
+            throw new InvalidArgumentException('The price manager requires the repository of price list rule extending the interface Klipper\Module\ProductBundle\Repository\PriceListRuleRepositoryInterface');
+        }
+
+        /* @var PriceListRuleInterface[] $rules */
+        return $repo->createQueryBuilderForPriceManager('plr')
             ->where('plr.priceList = :priceListId')
             ->andWhere('plr.startAt is NULL OR plr.startAt <= :now')
             ->andWhere('plr.endAt is NULL OR plr.endAt >= :now')
@@ -130,21 +131,6 @@ class PriceManager implements PriceManagerInterface
             ->getQuery()
             ->getResult()
         ;
-
-        $appliedOns = array_reverse(ProductListRuleAppliedOn::getValues());
-        $mapRules = [];
-
-        foreach ($rules as $rule) {
-            $mapRules[$rule->getAppliedOn()][] = $rule;
-        }
-
-        foreach ($appliedOns as $appliedOn) {
-            if (isset($mapRules[$appliedOn])) {
-                $orderedRules = array_merge($orderedRules, $mapRules[$appliedOn]);
-            }
-        }
-
-        return array_values($orderedRules);
     }
 
     /**
