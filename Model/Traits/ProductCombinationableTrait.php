@@ -27,7 +27,7 @@ trait ProductCombinationableTrait
      * )
      *
      * @Serializer\Expose
-     * @Serializer\MaxDepth(1)
+     * @Serializer\MaxDepth(3)
      */
     protected ?ProductCombinationInterface $productCombination = null;
 
