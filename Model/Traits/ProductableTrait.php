@@ -27,7 +27,7 @@ trait ProductableTrait
      * )
      *
      * @Serializer\Expose
-     * @Serializer\MaxDepth(1)
+     * @Serializer\MaxDepth(2)
      */
     protected ?ProductInterface $product = null;
 
