@@ -13,6 +13,8 @@ namespace Klipper\Module\ProductBundle\Model;
 
 use Klipper\Component\DoctrineChoice\Model\ChoiceInterface;
 use Klipper\Component\Model\Traits\IdInterface;
+use Klipper\Component\Model\Traits\ImagePathInterface;
+use Klipper\Component\Model\Traits\NameableInterface;
 use Klipper\Component\Model\Traits\OrganizationalRequiredInterface;
 use Klipper\Component\Model\Traits\TimestampableInterface;
 use Klipper\Component\Model\Traits\UserTrackableInterface;
@@ -26,6 +28,8 @@ use Klipper\Contracts\Model\CurrencyableInterface;
 interface ProductInterface extends
     IdInterface,
     CurrencyableInterface,
+    ImagePathInterface,
+    NameableInterface,
     OrganizationalRequiredInterface,
     TimestampableInterface,
     UserTrackableInterface

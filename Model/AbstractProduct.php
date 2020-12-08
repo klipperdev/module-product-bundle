@@ -16,6 +16,7 @@ use JMS\Serializer\Annotation as Serializer;
 use Klipper\Component\DoctrineChoice\Model\ChoiceInterface;
 use Klipper\Component\DoctrineChoice\Validator\Constraints\EntityDoctrineChoice;
 use Klipper\Component\Model\Traits\CurrencyableTrait;
+use Klipper\Component\Model\Traits\ImagePathTrait;
 use Klipper\Component\Model\Traits\NameableTrait;
 use Klipper\Component\Model\Traits\OrganizationalRequiredTrait;
 use Klipper\Component\Model\Traits\TimestampableTrait;
@@ -32,6 +33,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 abstract class AbstractProduct implements ProductInterface
 {
     use CurrencyableTrait;
+    use ImagePathTrait;
     use NameableTrait;
     use OrganizationalRequiredTrait;
     use TimestampableTrait;
@@ -152,6 +154,19 @@ abstract class AbstractProduct implements ProductInterface
      * @Serializer\MaxDepth(1)
      */
     protected ?ProductCombinationInterface $defaultProductCombination = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @Assert\Type(type="string")
+     * @Assert\Length(max=255)
+     *
+     * @Serializer\Expose
+     * @Serializer\ReadOnly
+     * @Serializer\SerializedName("image_url")
+     * @Serializer\Type("OrgUrl<'klipper_module_product_apiproduct_downloadimage', 'id=`{{id}}`', 'ext=`{{preferredImageExtension}}`'>")
+     */
+    protected ?string $imagePath = null;
 
     public function setReference(?string $reference): self
     {
