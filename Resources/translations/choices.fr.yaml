@@ -4,6 +4,12 @@ product_list_rule_applied_on.product_range: Gamme de produit
 product_list_rule_applied_on.product: Produit
 product_list_rule_applied_on.product_combination: Déclinaison de produit
 
+# Product List Rule Depending Choice
+product_list_rule_depending_on.no_other_product: Aucun autre produit
+product_list_rule_depending_on.product_range: Gamme de produit
+product_list_rule_depending_on.product: Produit
+product_list_rule_depending_on.product_combination: Déclinaison de produit
+
 # Product List Rule Price Calculation
 product_list_rule_price_calculation.flat_rate: Forfait
 product_list_rule_price_calculation.percent: Pourcentage de remise

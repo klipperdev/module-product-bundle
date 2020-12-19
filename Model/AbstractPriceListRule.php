@@ -105,6 +105,69 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     protected ?ProductCombinationInterface $productCombination = null;
 
     /**
+     * @ORM\Column(type="string", length=128, nullable=true)
+     *
+     * @KlipperProductAssert\ProductListRuleDependingOnChoice
+     * @Assert\Type(type="string")
+     * @Assert\Length(min=0, max=128)
+     * @Assert\NotBlank
+     *
+     * @Serializer\Expose
+     */
+    protected ?string $dependingOn = null;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\ProductRangeInterface", fetch="EAGER")
+     *
+     * @Assert\Expression(
+     *     expression="!(this.getDependingOn() in ['product_range'] && !value)",
+     *     message="This value should not be blank."
+     * )
+     * @Assert\Expression(
+     *     expression="!(this.getDependingOn() in ['no_other_product'] && value)",
+     *     message="This value should be blank."
+     * )
+     *
+     * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
+     */
+    protected ?ProductRangeInterface $dependingOnProductRange = null;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\ProductInterface", fetch="EAGER")
+     *
+     * @Assert\Expression(
+     *     expression="!(this.getDependingOn() in ['product', 'product_combination'] && !value)",
+     *     message="This value should not be blank."
+     * )
+     * @Assert\Expression(
+     *     expression="!(this.getDependingOn() in ['no_other_product'] && value)",
+     *     message="This value should be blank."
+     * )
+     *
+     * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
+     */
+    protected ?ProductInterface $dependingOnProduct = null;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\ProductCombinationInterface", fetch="EAGER")
+     *
+     * @Assert\Expression(
+     *     expression="!(this.getDependingOn() in ['product_combination'] && !value)",
+     *     message="This value should not be blank."
+     * )
+     * @Assert\Expression(
+     *     expression="!(this.getDependingOn() in ['no_other_product'] && value)",
+     *     message="This value should be blank."
+     * )
+     *
+     * @Serializer\Expose
+     * @Serializer\MaxDepth(3)
+     */
+    protected ?ProductCombinationInterface $dependingOnProductCombination = null;
+
+    /**
      * @ORM\Column(type="float", nullable=true)
      *
      * @Assert\Type(type="float")
@@ -337,6 +400,54 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     public function setProductCombination(?ProductCombinationInterface $productCombination): self
     {
         $this->productCombination = $productCombination;
+
+        return $this;
+    }
+
+    public function getDependingOn(): ?string
+    {
+        return $this->dependingOn;
+    }
+
+    public function setDependingOn(?string $dependingOn): self
+    {
+        $this->dependingOn = $dependingOn;
+
+        return $this;
+    }
+
+    public function getDependingOnProductRange(): ?ProductRangeInterface
+    {
+        return $this->dependingOnProductRange;
+    }
+
+    public function setDependingOnProductRange(?ProductRangeInterface $productRange): self
+    {
+        $this->dependingOnProductRange = $productRange;
+
+        return $this;
+    }
+
+    public function getDependingOnProduct(): ?ProductInterface
+    {
+        return $this->dependingOnProduct;
+    }
+
+    public function setDependingOnProduct(?ProductInterface $product): self
+    {
+        $this->dependingOnProduct = $product;
+
+        return $this;
+    }
+
+    public function getDependingOnProductCombination(): ?ProductCombinationInterface
+    {
+        return $this->dependingOnProductCombination;
+    }
+
+    public function setDependingOnProductCombination(?ProductCombinationInterface $productCombination): self
+    {
+        $this->dependingOnProductCombination = $productCombination;
 
         return $this;
     }

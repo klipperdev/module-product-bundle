@@ -63,6 +63,34 @@ interface PriceListRuleInterface extends
     /**
      * @return static
      */
+    public function setDependingOn(?string $dependingOn);
+
+    public function getDependingOn(): ?string;
+
+    /**
+     * @return static
+     */
+    public function setDependingOnProductRange(?ProductRangeInterface $productRange);
+
+    public function getDependingOnProductRange(): ?ProductRangeInterface;
+
+    /**
+     * @return static
+     */
+    public function setDependingOnProduct(?ProductInterface $product);
+
+    public function getDependingOnProduct(): ?ProductInterface;
+
+    /**
+     * @return static
+     */
+    public function setDependingOnProductCombination(?ProductCombinationInterface $productCombination);
+
+    public function getDependingOnProductCombination(): ?ProductCombinationInterface;
+
+    /**
+     * @return static
+     */
     public function setMinimumQuantity(?float $minimumQuantity);
 
     public function getMinimumQuantity(): ?float;

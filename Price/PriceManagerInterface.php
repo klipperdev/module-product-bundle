@@ -21,10 +21,21 @@ use Klipper\Module\ProductBundle\Model\ProductInterface;
 interface PriceManagerInterface
 {
     /**
-     * @param int|ProductInterface|string                 $product            The instance or id of the product
-     * @param null|int|ProductCombinationInterface|string $productCombination The instance or id of the product combination
-     * @param null|int|PriceListInterface|string          $priceList          The instance or id of the price list
-     * @param int                                         $quantity           The quantity to select the good price list rule
+     * @param int|ProductInterface|string                 $product                       The instance or id of the product
+     * @param null|int|ProductCombinationInterface|string $productCombination            The instance or id of the product combination
+     * @param null|int|PriceListInterface|string          $priceList                     The instance or id of the price list
+     * @param int                                         $quantity                      The quantity to select the good price list rule
+     * @param null|int|ProductInterface|string            $dependingOnProduct            The instance or id of the depending on product
+     * @param null|int|ProductCombinationInterface|string $dependingOnProductCombination The instance or id of the depending on product combination
+     * @param null|int|ProductCombinationInterface|string $dependingOnProductRange       The instance or id of the depending on product range
      */
-    public function getProductPrice($product, $productCombination = null, $priceList = null, int $quantity = 0): float;
+    public function getProductPrice(
+        $product,
+        $productCombination = null,
+        $priceList = null,
+        int $quantity = 0,
+        $dependingOnProduct = null,
+        $dependingOnProductCombination = null,
+        $dependingOnProductRange = null
+    ): float;
 }

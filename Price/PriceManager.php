@@ -18,6 +18,7 @@ use Klipper\Module\ProductBundle\Model\PriceListInterface;
 use Klipper\Module\ProductBundle\Model\PriceListRuleInterface;
 use Klipper\Module\ProductBundle\Model\ProductCombinationInterface;
 use Klipper\Module\ProductBundle\Model\ProductInterface;
+use Klipper\Module\ProductBundle\Model\ProductRangeInterface;
 use Klipper\Module\ProductBundle\Repository\PriceListRuleRepositoryInterface;
 
 /**
@@ -32,8 +33,15 @@ class PriceManager implements PriceManagerInterface
         $this->doctrine = $doctrine;
     }
 
-    public function getProductPrice($product, $productCombination = null, $priceList = null, int $quantity = 0): float
-    {
+    public function getProductPrice(
+        $product,
+        $productCombination = null,
+        $priceList = null,
+        int $quantity = 0,
+        $dependingOnProduct = null,
+        $dependingOnProductCombination = null,
+        $dependingOnProductRange = null
+    ): float {
         $em = ManagerUtils::getRequiredManager($this->doctrine, ProductInterface::class);
 
         if (!$product instanceof ProductInterface) {
@@ -55,7 +63,7 @@ class PriceManager implements PriceManagerInterface
         }
 
         return null !== $priceList
-            ? $this->getProductPriceByPriceList($priceList, $product, $productCombination, $quantity)
+            ? $this->getProductPriceByPriceList($priceList, $product, $productCombination, $quantity, $dependingOnProduct, $dependingOnProductCombination, $dependingOnProductRange)
             : $this->getProductPriceByProduct($product, $productCombination);
     }
 
@@ -79,7 +87,10 @@ class PriceManager implements PriceManagerInterface
         $priceList,
         ProductInterface $product,
         ?ProductCombinationInterface $productCombination = null,
-        int $quantity = 0
+        int $quantity = 0,
+        ?ProductInterface $dependingOnProduct = null,
+        ?ProductCombinationInterface $dependingOnProductCombination = null,
+        ?ProductRangeInterface $dependingOnProductRange = null
     ): float {
         $priceListId = $priceList instanceof PriceListInterface
             ? $priceList->getId()
@@ -93,12 +104,21 @@ class PriceManager implements PriceManagerInterface
         $productRangeId = null !== $product->getProductRange()
             ? $product->getProductRange()->getId()
             : null;
+        $dependingOnProductId = $dependingOnProduct instanceof ProductInterface
+            ? $dependingOnProduct->getId()
+            : $dependingOnProduct;
+        $dependingOnProductCombinationId = $dependingOnProductCombination instanceof ProductCombinationInterface
+            ? $dependingOnProductCombination->getId()
+            : $dependingOnProductCombination;
+        $dependingOnProductRangeId = null !== $dependingOnProductRange
+            ? $dependingOnProductRange->getId()
+            : $dependingOnProductRange;
 
         $rules = $this->getRules($priceListId, $quantity);
 
         foreach ($rules as $rule) {
-            if ($this->isValidRule($rule, $productId, $productCombinationId, $productRangeId)) {
-                return $this->getPriceFromRule($rule, $product, $productCombination, $quantity);
+            if ($this->isValidRule($rule, $productId, $productCombinationId, $productRangeId, $dependingOnProductId, $dependingOnProductCombinationId, $dependingOnProductRangeId)) {
+                return $this->getPriceFromRule($rule, $product, $productCombination, $quantity, $dependingOnProduct, $dependingOnProductCombination, $dependingOnProductRange);
             }
         }
 
@@ -137,22 +157,78 @@ class PriceManager implements PriceManagerInterface
      * @param int|string      $productId
      * @param null|int|string $productCombinationId
      * @param null|int|string $productRangeId
+     * @param null|int|string $dependingOnProductId
+     * @param null|int|string $dependingOnProductCombinationId
+     * @param null|int|string $dependingOnProductRangeId
      */
-    private function isValidRule(PriceListRuleInterface $rule, $productId, $productCombinationId, $productRangeId): bool
-    {
+    private function isValidRule(
+        PriceListRuleInterface $rule,
+        $productId,
+        $productCombinationId,
+        $productRangeId,
+        $dependingOnProductId,
+        $dependingOnProductCombinationId,
+        $dependingOnProductRangeId
+    ): bool {
         switch ($rule->getAppliedOn()) {
             case 'product_combination':
                 if (null === $productCombinationId) {
                     return false;
                 }
 
-                return null !== $rule->getProductCombination() && $productCombinationId === $rule->getProductCombination()->getId();
+                return null !== $rule->getProductCombination()
+                    && $productCombinationId === $rule->getProductCombination()->getId()
+                    && $this->isValidRuleDependingOn($rule, $dependingOnProductId, $dependingOnProductCombinationId, $dependingOnProductRangeId)
+                ;
             case 'product':
-                return null !== $rule->getProduct() && $productId === $rule->getProduct()->getId();
+                return null !== $rule->getProduct()
+                    && $productId === $rule->getProduct()->getId()
+                    && $this->isValidRuleDependingOn($rule, $dependingOnProductId, $dependingOnProductCombinationId, $dependingOnProductRangeId)
+                ;
             case 'product_range':
-                return null !== $productRangeId && null !== $rule->getProductRange() && $productRangeId === $rule->getProductRange()->getId();
+                return null !== $productRangeId
+                    && null !== $rule->getProductRange() && $productRangeId === $rule->getProductRange()->getId()
+                    && $this->isValidRuleDependingOn($rule, $dependingOnProductId, $dependingOnProductCombinationId, $dependingOnProductRangeId)
+                ;
             case 'all_products':
-                return true;
+                return $this->isValidRuleDependingOn($rule, $dependingOnProductId, $dependingOnProductCombinationId, $dependingOnProductRangeId);
+            default:
+                return false;
+        }
+    }
+
+    private function isValidRuleDependingOn(PriceListRuleInterface $rule, $dependingOnProductId, $dependingOnProductCombinationId, $dependingOnProductRangeId): bool
+    {
+        switch ($rule->getDependingOn()) {
+            case 'product_combination':
+                if (null === $dependingOnProductCombinationId) {
+                    return false;
+                }
+
+                return null !== $rule->getDependingOnProductCombination()
+                    && $dependingOnProductCombinationId === $rule->getDependingOnProductCombination()->getId()
+                ;
+            case 'product':
+                if (null === $dependingOnProductId) {
+                    return false;
+                }
+
+                return null !== $rule->getDependingOnProduct()
+                    && $dependingOnProductId === $rule->getDependingOnProduct()->getId()
+                ;
+            case 'product_range':
+                if (null === $dependingOnProductRangeId) {
+                    return false;
+                }
+
+                return null !== $rule->getDependingOnProductRange()
+                    && $dependingOnProductRangeId === $rule->getDependingOnProductRange()->getId()
+                ;
+            case 'no_other_product':
+                return null === $dependingOnProductId
+                    && null === $dependingOnProductCombinationId
+                    && null === $dependingOnProductRangeId
+                ;
             default:
                 return false;
         }
@@ -165,7 +241,10 @@ class PriceManager implements PriceManagerInterface
         PriceListRuleInterface $rule,
         ProductInterface $product,
         ?ProductCombinationInterface $productCombination = null,
-        int $quantity = 0
+        int $quantity = 0,
+        ?ProductInterface $dependingOnProduct = null,
+        ?ProductCombinationInterface $dependingOnProductCombination = null,
+        ?ProductRangeInterface $dependingOnProductRange = null
     ): float {
         switch ($rule->getPriceCalculation()) {
             case 'flat_rate':
@@ -176,7 +255,15 @@ class PriceManager implements PriceManagerInterface
 
                 return (float) $productPrice * $rate;
             case 'formula':
-                return $this->getPriceFromRuleFormula($rule, $product, $productCombination, $quantity);
+                return $this->getPriceFromRuleFormula(
+                    $rule,
+                    $product,
+                    $productCombination,
+                    $quantity,
+                    $dependingOnProduct,
+                    $dependingOnProductCombination,
+                    $dependingOnProductRange
+                );
             default:
                 return 0.0;
         }
@@ -186,7 +273,10 @@ class PriceManager implements PriceManagerInterface
         PriceListRuleInterface $rule,
         ProductInterface $product,
         ?ProductCombinationInterface $productCombination = null,
-        int $quantity = 0
+        int $quantity = 0,
+        ?ProductInterface $dependingOnProduct = null,
+        ?ProductCombinationInterface $dependingOnProductCombination = null,
+        ?ProductRangeInterface $dependingOnProductRange = null
     ): float {
         switch ($rule->getFormulaBasedOn()) {
             case 'selling_price':
@@ -196,7 +286,15 @@ class PriceManager implements PriceManagerInterface
                 break;
             case 'other_price_list':
                 $price = null !== $rule->getFormulaPriceList()
-                    ? $this->getProductPrice($product, $productCombination, $rule->getFormulaPriceList(), $quantity)
+                    ? $this->getProductPrice(
+                        $product,
+                        $productCombination,
+                        $rule->getFormulaPriceList(),
+                        $quantity,
+                        $dependingOnProduct,
+                        $dependingOnProductCombination,
+                        $dependingOnProductRange
+                    )
                     : 0.0;
 
                 break;
