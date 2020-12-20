@@ -90,7 +90,7 @@ trait PriceListRuleRepositoryTrait
             // Order by for applied on
             ->orderBy('int_type', 'desc')
             // Order by for depending on
-            ->andOrderBy('int_depending_type', 'desc')
+            ->addOrderBy('int_depending_type', 'desc')
         ;
     }
 
