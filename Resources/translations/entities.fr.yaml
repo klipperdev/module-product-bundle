@@ -56,6 +56,7 @@ price_list.name.plural: Listes de prix
 price_list_rule.name: Règle de prix
 price_list_rule.name.plural: Règles de prix
 price_list_rule.fields.applied_on: Appliqué sur
+price_list_rule.fields.depending_on: Dépendant de
 price_list_rule.fields.minimum_quantity: Quantité minimum
 price_list_rule.fields.start_at: Commence le
 price_list_rule.fields.end_at: Fini le
