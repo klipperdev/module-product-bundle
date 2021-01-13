@@ -180,18 +180,22 @@ class PriceManager implements PriceManagerInterface
                     && $productCombinationId === $rule->getProductCombination()->getId()
                     && $this->isValidRuleDependingOn($rule, $dependingOnProductId, $dependingOnProductCombinationId, $dependingOnProductRangeId)
                 ;
+
             case 'product':
                 return null !== $rule->getProduct()
                     && $productId === $rule->getProduct()->getId()
                     && $this->isValidRuleDependingOn($rule, $dependingOnProductId, $dependingOnProductCombinationId, $dependingOnProductRangeId)
                 ;
+
             case 'product_range':
                 return null !== $productRangeId
                     && null !== $rule->getProductRange() && $productRangeId === $rule->getProductRange()->getId()
                     && $this->isValidRuleDependingOn($rule, $dependingOnProductId, $dependingOnProductCombinationId, $dependingOnProductRangeId)
                 ;
+
             case 'all_products':
                 return $this->isValidRuleDependingOn($rule, $dependingOnProductId, $dependingOnProductCombinationId, $dependingOnProductRangeId);
+
             default:
                 return false;
         }
@@ -208,6 +212,7 @@ class PriceManager implements PriceManagerInterface
                 return null !== $rule->getDependingOnProductCombination()
                     && $dependingOnProductCombinationId === $rule->getDependingOnProductCombination()->getId()
                 ;
+
             case 'product':
                 if (null === $dependingOnProductId) {
                     return false;
@@ -216,6 +221,7 @@ class PriceManager implements PriceManagerInterface
                 return null !== $rule->getDependingOnProduct()
                     && $dependingOnProductId === $rule->getDependingOnProduct()->getId()
                 ;
+
             case 'product_range':
                 if (null === $dependingOnProductRangeId) {
                     return false;
@@ -224,11 +230,13 @@ class PriceManager implements PriceManagerInterface
                 return null !== $rule->getDependingOnProductRange()
                     && $dependingOnProductRangeId === $rule->getDependingOnProductRange()->getId()
                 ;
+
             case 'no_other_product':
                 return null === $dependingOnProductId
                     && null === $dependingOnProductCombinationId
                     && null === $dependingOnProductRangeId
                 ;
+
             default:
                 return false;
         }
@@ -249,11 +257,13 @@ class PriceManager implements PriceManagerInterface
         switch ($rule->getPriceCalculation()) {
             case 'flat_rate':
                 return (float) $rule->getValue();
+
             case 'percent':
                 $productPrice = (float) $product->getPrice();
                 $rate = (float) $rule->getValue();
 
                 return (float) $productPrice * $rate;
+
             case 'formula':
                 return $this->getPriceFromRuleFormula(
                     $rule,
@@ -264,6 +274,7 @@ class PriceManager implements PriceManagerInterface
                     $dependingOnProductCombination,
                     $dependingOnProductRange
                 );
+
             default:
                 return 0.0;
         }
@@ -284,6 +295,7 @@ class PriceManager implements PriceManagerInterface
                     ? (float) $productCombination->getPrice() : (float) $product->getPrice();
 
                 break;
+
             case 'other_price_list':
                 $price = null !== $rule->getFormulaPriceList()
                     ? $this->getProductPrice(
@@ -298,6 +310,7 @@ class PriceManager implements PriceManagerInterface
                     : 0.0;
 
                 break;
+
             default:
                 $price = 0.0;
         }

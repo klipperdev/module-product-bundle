@@ -197,7 +197,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
      *
-     * @KlipperProductAssert\ProductListRulePriceCalculationChoice()
+     * @KlipperProductAssert\ProductListRulePriceCalculationChoice
      * @Assert\Type(type="string")
      * @Assert\Length(min=0, max=128)
      * @Assert\NotBlank
@@ -226,7 +226,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
      *
-     * @KlipperProductAssert\ProductListRuleBasedOnChoice()
+     * @KlipperProductAssert\ProductListRuleBasedOnChoice
      * @Assert\Type(type="string")
      * @Assert\Length(min=0, max=128)
      * @Assert\Expression(

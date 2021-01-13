@@ -17,8 +17,7 @@ use Doctrine\Persistence\ObjectRepository;
 /**
  * @author François Pluchino <francois.pluchino@klipper.dev>
  */
-interface PriceListRuleRepositoryInterface extends
-    ObjectRepository
+interface PriceListRuleRepositoryInterface extends ObjectRepository
 {
     public function createQueryBuilderForPriceManager($alias, $indexBy = null): QueryBuilder;
 }

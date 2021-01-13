@@ -43,7 +43,7 @@ abstract class AbstractAttributeItem implements AttributeItemInterface
      *
      * @Gedmo\SortableGroup
      *
-     * @Assert\NotBlank()
+     * @Assert\NotBlank
      *
      * @Serializer\Expose
      * @Serializer\MaxDepth(1)

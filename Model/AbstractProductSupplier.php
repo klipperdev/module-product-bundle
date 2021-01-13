@@ -30,9 +30,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 abstract class AbstractProductSupplier implements ProductSupplierInterface
 {
     use OrganizationalRequiredTrait;
+    use ProductableTrait;
     use TimestampableTrait;
     use UserTrackableTrait;
-    use ProductableTrait;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
