@@ -83,7 +83,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      * )
      *
      * @Serializer\Expose
-     * @Serializer\MaxDepth(1)
+     * @Serializer\MaxDepth(2)
      */
     protected ?ProductInterface $product = null;
 
