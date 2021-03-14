@@ -232,10 +232,7 @@ class PriceManager implements PriceManagerInterface
                 ;
 
             case 'no_other_product':
-                return null === $dependingOnProductId
-                    && null === $dependingOnProductCombinationId
-                    && null === $dependingOnProductRangeId
-                ;
+                return true;
 
             default:
                 return false;
