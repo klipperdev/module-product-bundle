@@ -1,0 +1,71 @@
+# Attribute
+attribute.name: Atributo
+attribute.name.plural: Atributos
+attribute.associations.type: Tipo
+
+# Attribute Item
+attribute_item.name: Valor del atributo
+attribute_item.name.plural: Valores del atributo
+attribute_item.fields.fax: Color
+attribute.associations.attribute: Atributo
+
+# Brand
+brand.name: Marca
+brand.name.plural: Marcas
+
+# Product range
+product_range.name: Gama de productos
+product_range.name.plural: Gamas de productos
+
+# Product
+product.name: Producto
+product.name.plural: Productos
+product.fields.bar_code: Cód. de barras
+product.fields.can_be_buy: Puede comprarse
+product.fields.can_be_sell: Puede venderse
+product.fields.code_ean13: Cód. EAN 13
+product.fields.code_upc: Cód. UPC
+product.fields.color: Color
+product.fields.internal_reference: Referencia interna
+product.fields.part_number: P/N del artículo
+product.fields.price: Precio
+product.associations.brand: Marca
+product.associations.product_type: Tipo de producto
+
+# Product combination
+product_combination.name: Combinación de productos
+product_combination.name.plural: Combinaciones de productos
+product_combination.fields.reference: Referencia
+product_combination.fields.code_ean13: Cód. EAN 13
+product_combination.fields.code_upc: Cód. UPC
+product_combination.fields.price: Precio
+product.associations.default_product_combination: Combinación por defecto
+
+# Product supplier
+product_supplier.name: Proveedor del producto
+product_supplier.name.plural: Proveedores del producto
+product_supplier.fields.quantity: Cantidad
+product_supplier.fields.reference: Referencia
+product_supplier.associations.supplier: Proveedor
+
+# Price book
+price_list.name: Lista de precios
+price_list.name.plural: Listas de precios
+
+# Price list rule
+price_list_rule.name: Regla de precio
+price_list_rule.name.plural: Reglas de precio
+price_list_rule.fields.applied_on: Aplicado en
+price_list_rule.fields.depending_on: Dependiendo de
+price_list_rule.fields.minimum_quantity: Cantidad mínima
+price_list_rule.fields.start_at: Empieza el
+price_list_rule.fields.end_at: Acaba el
+price_list_rule.fields.price_calculation: Calcular el precio
+price_list_rule.fields.value: Valor
+price_list_rule.fields.formula_based_on: Basada en
+price_list_rule.fields.formula_price_list: Lista de precio
+price_list_rule.fields.formula_price_reduction: Descuento en el precio
+price_list_rule.fields.formula_rounded_method: Método del redondeo
+price_list_rule.fields.formula_margin: Margen
+price_list_rule.fields.formula_minimum_margin: Margen mínimo
+price_list_rule.fields.formula_maximum_margin: Margen máximo

@@ -1,0 +1,20 @@
+# Product List Rule Applied Choice
+product_list_rule_applied_on.all_products: Todos los productos
+product_list_rule_applied_on.product_range: Gama de producto
+product_list_rule_applied_on.product: Producto
+product_list_rule_applied_on.product_combination: Combinaciones de producto
+
+# Product List Rule Depending Choice
+product_list_rule_depending_on.no_other_product: Ningún otro producto
+product_list_rule_depending_on.product_range: Gama de producto
+product_list_rule_depending_on.product: Producto
+product_list_rule_depending_on.product_combination: Combinación de producto
+
+# Product List Rule Price Calculation
+product_list_rule_price_calculation.flat_rate: Tarifa plana
+product_list_rule_price_calculation.percent: Porcentaje de descuento
+product_list_rule_price_calculation.formula: Fórmula
+
+# Product List Rule Based On
+product_list_rule_based_on.selling_price: Precio de venta
+product_list_rule_based_on.other_price_list: Otra lista de producto
