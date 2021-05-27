@@ -21,7 +21,7 @@ final class ProductListRulePriceCalculation implements ChoiceInterface
     public static function listIdentifiers(): array
     {
         return [
-            'flat_rate' => 'product_list_rule_price_calculation.flat_rate',
+            'price' => 'product_list_rule_price_calculation.price',
             'percent' => 'product_list_rule_price_calculation.percent',
             'formula' => 'product_list_rule_price_calculation.formula',
         ];

@@ -11,7 +11,7 @@ product_list_rule_depending_on.product: Produit
 product_list_rule_depending_on.product_combination: Déclinaison de produit
 
 # Product List Rule Price Calculation
-product_list_rule_price_calculation.flat_rate: Forfait
+product_list_rule_price_calculation.price: Prix
 product_list_rule_price_calculation.percent: Pourcentage de remise
 product_list_rule_price_calculation.formula: Formule
 

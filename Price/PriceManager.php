@@ -252,7 +252,7 @@ class PriceManager implements PriceManagerInterface
         ?ProductRangeInterface $dependingOnProductRange = null
     ): float {
         switch ($rule->getPriceCalculation()) {
-            case 'flat_rate':
+            case 'price':
                 return (float) $rule->getValue();
 
             case 'percent':

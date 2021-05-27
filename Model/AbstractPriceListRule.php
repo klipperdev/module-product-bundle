@@ -211,7 +211,7 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      *
      * @Assert\Type(type="float")
      * @Assert\Expression(
-     *     expression="!(this.getPriceCalculation() in ['flat_rate', 'percent'] && null === value)",
+     *     expression="!(this.getPriceCalculation() in ['price', 'percent'] && null === value)",
      *     message="This value should not be blank."
      * )
      * @Assert\Expression(

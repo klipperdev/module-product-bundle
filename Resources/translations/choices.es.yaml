@@ -11,7 +11,7 @@ product_list_rule_depending_on.product: Producto
 product_list_rule_depending_on.product_combination: Combinación de producto
 
 # Product List Rule Price Calculation
-product_list_rule_price_calculation.flat_rate: Tarifa plana
+product_list_rule_price_calculation.price: Precio
 product_list_rule_price_calculation.percent: Porcentaje de descuento
 product_list_rule_price_calculation.formula: Fórmula
 
