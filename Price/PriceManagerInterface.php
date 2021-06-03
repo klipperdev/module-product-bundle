@@ -37,5 +37,5 @@ interface PriceManagerInterface
         $dependingOnProduct = null,
         $dependingOnProductCombination = null,
         $dependingOnProductRange = null
-    ): float;
+    ): Price;
 }

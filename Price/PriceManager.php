@@ -33,6 +33,13 @@ class PriceManager implements PriceManagerInterface
         $this->doctrine = $doctrine;
     }
 
+    public static function isExtraPrice(
+        PriceListRuleInterface $rule,
+        ProductInterface $product
+    ): bool {
+        return $rule->isExtra() || $product->isExtra();
+    }
+
     public function getProductPrice(
         $product,
         $productCombination = null,
@@ -41,7 +48,7 @@ class PriceManager implements PriceManagerInterface
         $dependingOnProduct = null,
         $dependingOnProductCombination = null,
         $dependingOnProductRange = null
-    ): float {
+    ): Price {
         $em = ManagerUtils::getRequiredManager($this->doctrine, ProductInterface::class);
 
         if (!$product instanceof ProductInterface) {
@@ -59,7 +66,7 @@ class PriceManager implements PriceManagerInterface
         if (null === $product
             || (null !== $productCombination && $productCombination->getProductId() !== $product->getId())
         ) {
-            return 0.0;
+            return new Price(0.0);
         }
 
         return null !== $priceList
@@ -70,14 +77,14 @@ class PriceManager implements PriceManagerInterface
     private function getProductPriceByProduct(
         ProductInterface $product,
         ?ProductCombinationInterface $productCombination = null
-    ): float {
+    ): Price {
         if (null !== $productCombination && null !== $productCombinationPrice = $productCombination->getPrice()) {
-            return $productCombinationPrice;
+            return new Price($productCombinationPrice, $product->isExtra());
         }
 
-        return null !== $product && null !== $product->getPrice()
-            ? $product->getPrice()
-            : 0.0;
+        return null !== $product->getPrice()
+            ? new Price($product->getPrice(), $product->isExtra())
+            : new Price(0.0);
     }
 
     /**
@@ -91,7 +98,7 @@ class PriceManager implements PriceManagerInterface
         ?ProductInterface $dependingOnProduct = null,
         ?ProductCombinationInterface $dependingOnProductCombination = null,
         ?ProductRangeInterface $dependingOnProductRange = null
-    ): float {
+    ): Price {
         $priceListId = $priceList instanceof PriceListInterface
             ? $priceList->getId()
             : $priceList;
@@ -122,7 +129,7 @@ class PriceManager implements PriceManagerInterface
             }
         }
 
-        return 0.0;
+        return new Price(0.0, $product->isExtra());
     }
 
     /**
@@ -239,9 +246,6 @@ class PriceManager implements PriceManagerInterface
         }
     }
 
-    /**
-     * @param int|PriceListInterface|string $priceList
-     */
     private function getPriceFromRule(
         PriceListRuleInterface $rule,
         ProductInterface $product,
@@ -250,16 +254,18 @@ class PriceManager implements PriceManagerInterface
         ?ProductInterface $dependingOnProduct = null,
         ?ProductCombinationInterface $dependingOnProductCombination = null,
         ?ProductRangeInterface $dependingOnProductRange = null
-    ): float {
+    ): Price {
+        $extra = static::isExtraPrice($rule, $product);
+
         switch ($rule->getPriceCalculation()) {
             case 'price':
-                return (float) $rule->getValue();
+                return new Price((float) $rule->getValue(), $extra);
 
             case 'percent':
                 $productPrice = (float) $product->getPrice();
                 $rate = (float) $rule->getValue();
 
-                return (float) $productPrice * $rate;
+                return new Price($productPrice * $rate, $extra);
 
             case 'formula':
                 return $this->getPriceFromRuleFormula(
@@ -273,7 +279,7 @@ class PriceManager implements PriceManagerInterface
                 );
 
             default:
-                return 0.0;
+                return new Price(0.0, $extra);
         }
     }
 
@@ -285,7 +291,7 @@ class PriceManager implements PriceManagerInterface
         ?ProductInterface $dependingOnProduct = null,
         ?ProductCombinationInterface $dependingOnProductCombination = null,
         ?ProductRangeInterface $dependingOnProductRange = null
-    ): float {
+    ): Price {
         switch ($rule->getFormulaBasedOn()) {
             case 'selling_price':
                 $price = null !== $productCombination
@@ -325,8 +331,10 @@ class PriceManager implements PriceManagerInterface
             $newPrice = $price + $maxMarge;
         }
 
-        return $roundedMethod > 0
+        $finalPrice = $roundedMethod > 0
             ? PriceUtil::round($newPrice, $roundedMethod)
             : $newPrice;
+
+        return new Price($finalPrice, static::isExtraPrice($rule, $product));
     }
 }

@@ -119,6 +119,13 @@ interface PriceListRuleInterface extends
     /**
      * @return static
      */
+    public function setExtra(bool $extra);
+
+    public function isExtra(): bool;
+
+    /**
+     * @return static
+     */
     public function setValue(?float $value);
 
     public function getValue(): ?float;

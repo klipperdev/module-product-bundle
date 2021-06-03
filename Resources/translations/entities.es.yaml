@@ -61,6 +61,7 @@ price_list_rule.fields.minimum_quantity: Cantidad mínima
 price_list_rule.fields.start_at: Empieza el
 price_list_rule.fields.end_at: Acaba el
 price_list_rule.fields.price_calculation: Calcular el precio
+price_list_rule.fields.extra: Es un extra?
 price_list_rule.fields.value: Valor
 price_list_rule.fields.formula_based_on: Basada en
 price_list_rule.fields.formula_price_list: Lista de precio

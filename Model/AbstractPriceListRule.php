@@ -168,6 +168,15 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     protected ?ProductCombinationInterface $dependingOnProductCombination = null;
 
     /**
+     * @ORM\Column(type="boolean")
+     *
+     * @Assert\Type(type="boolean")
+     *
+     * @Serializer\Expose
+     */
+    protected bool $extra = false;
+
+    /**
      * @ORM\Column(type="float", nullable=true)
      *
      * @Assert\Type(type="float")
@@ -496,6 +505,18 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     public function setPriceCalculation(?string $priceCalculation): self
     {
         $this->priceCalculation = $priceCalculation;
+
+        return $this;
+    }
+
+    public function isExtra(): bool
+    {
+        return $this->extra;
+    }
+
+    public function setExtra(bool $extra): self
+    {
+        $this->extra = $extra;
 
         return $this;
     }

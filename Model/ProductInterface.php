@@ -79,6 +79,13 @@ interface ProductInterface extends
     /**
      * @return static
      */
+    public function setExtra(bool $extra);
+
+    public function isExtra(): bool;
+
+    /**
+     * @return static
+     */
     public function setDescription(?string $description);
 
     public function getDescription(): ?string;

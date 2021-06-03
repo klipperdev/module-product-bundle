@@ -99,6 +99,15 @@ abstract class AbstractProduct implements ProductInterface
     protected bool $canBeBuy = false;
 
     /**
+     * @ORM\Column(type="boolean")
+     *
+     * @Assert\Type(type="boolean")
+     *
+     * @Serializer\Expose
+     */
+    protected bool $extra = false;
+
+    /**
      * @ORM\Column(type="string", length=128, nullable=true)
      *
      * @Assert\Type(type="string")
@@ -236,6 +245,18 @@ abstract class AbstractProduct implements ProductInterface
     public function setCanBeBuy(bool $canBeBuy): self
     {
         $this->canBeBuy = $canBeBuy;
+
+        return $this;
+    }
+
+    public function isExtra(): bool
+    {
+        return $this->extra;
+    }
+
+    public function setExtra(bool $extra): self
+    {
+        $this->extra = $extra;
 
         return $this;
     }
