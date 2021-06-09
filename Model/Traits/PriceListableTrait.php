@@ -23,7 +23,7 @@ trait PriceListableTrait
     /**
      * @ORM\ManyToOne(
      *     targetEntity="Klipper\Module\ProductBundle\Model\PriceListInterface",
-     *     fetch="EAGER"
+     *     fetch="EXTRA_LAZY"
      * )
      *
      * @Serializer\Expose
