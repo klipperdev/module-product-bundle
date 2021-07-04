@@ -14,6 +14,7 @@ namespace Klipper\Module\ProductBundle\Model;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use JMS\Serializer\Annotation as Serializer;
 use Klipper\Component\Model\Traits\OrganizationalRequiredTrait;
 use Klipper\Component\Model\Traits\SortableTrait;
@@ -45,6 +46,8 @@ abstract class AbstractProductCombination implements ProductCombinationInterface
      * @ORM\JoinColumn(onDelete="CASCADE")
      *
      * @Assert\NotBlank
+     *
+     * @Gedmo\SortableGroup
      *
      * @Serializer\Expose
      * @Serializer\MaxDepth(1)
