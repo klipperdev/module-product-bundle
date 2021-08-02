@@ -12,6 +12,7 @@
 namespace Klipper\Module\ProductBundle\DependencyInjection;
 
 use Klipper\Bundle\ApiBundle\Util\ControllerDefinitionUtil;
+use Klipper\Module\ProductBundle\Controller\ApiProductCombinationController;
 use Klipper\Module\ProductBundle\Controller\ApiProductController;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -33,7 +34,9 @@ class KlipperProductExtension extends Extension
         $loader->load('price_manager.xml');
         $loader->load('doctrine_subscriber.xml');
         $loader->load('upload_listener.xml');
+        $loader->load('api_form.xml');
 
         ControllerDefinitionUtil::set($container, ApiProductController::class);
+        ControllerDefinitionUtil::set($container, ApiProductCombinationController::class);
     }
 }
