@@ -39,6 +39,13 @@ interface AttributeItemInterface extends
     /**
      * @return static
      */
+    public function setReference(?string $reference);
+
+    public function getReference(): ?string;
+
+    /**
+     * @return static
+     */
     public function setColor(?string $color);
 
     public function getColor(): ?string;

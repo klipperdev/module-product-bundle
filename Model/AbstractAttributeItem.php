@@ -61,6 +61,16 @@ abstract class AbstractAttributeItem implements AttributeItemInterface
      */
     protected ?string $color = null;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @Assert\Type(type="string")
+     * @Assert\Length(min=0, max=255)
+     *
+     * @Serializer\Expose
+     */
+    protected ?string $reference = null;
+
     public function setAttribute(?AttributeInterface $attribute): self
     {
         $this->attribute = $attribute;
@@ -71,6 +81,18 @@ abstract class AbstractAttributeItem implements AttributeItemInterface
     public function getAttribute(): ?AttributeInterface
     {
         return $this->attribute;
+    }
+
+    public function setReference(?string $reference): self
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
     }
 
     public function setColor(?string $color): self

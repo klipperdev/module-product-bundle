@@ -6,6 +6,7 @@ attribute.associations.type: Type
 # Attribute Item
 attribute_item.name: Valeur d'attribut
 attribute_item.name.plural: Valeurs d'attribut
+attribute_item.fields.reference: Référence
 attribute_item.fields.color: Couleur
 attribute.associations.attribute: Attribut
 
