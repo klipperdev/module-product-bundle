@@ -12,6 +12,7 @@
 namespace Klipper\Module\ProductBundle\Product;
 
 use Klipper\Module\ProductBundle\Exception\ProductCombinationAlreadyExistingReferenceException;
+use Klipper\Module\ProductBundle\Exception\ProductCombinationAttributeNotFoundException;
 use Klipper\Module\ProductBundle\Exception\ProductCombinationEmptyReferenceException;
 use Klipper\Module\ProductBundle\Exception\ProductCombinationInvalidProductReferenceException;
 use Klipper\Module\ProductBundle\Exception\ProductCombinationNotPersistException;
@@ -31,6 +32,7 @@ interface ProductManagerInterface
      * @throws ProductCombinationAlreadyExistingReferenceException
      * @throws ProductCombinationInvalidProductReferenceException
      * @throws ProductCombinationProductNotFoundException
+     * @throws ProductCombinationAttributeNotFoundException
      * @throws ProductCombinationNotPersistException
      */
     public function createProductCombinationFromReference(string $reference, ?ProductInterface $product = null, ?string $separator = null): ProductCombinationInterface;

@@ -2,3 +2,4 @@ klipper_product.combination_creator.empty_reference: La referencia está vacía 
 klipper_product.combination_creator.already_existing_reference: La referencia ya existe
 klipper_product.combination_creator.invalid_product_reference: La primera parte de la referencia no es la misma que la referencia del producto
 klipper_product.combination_creator.product_not_found: No se puede encontrar la referencia del producto
+klipper_product.combination_creator.attribute_not_found: No se encontró el atributo "{attribute}"

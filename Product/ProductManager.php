@@ -15,6 +15,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\NonUniqueResultException;
 use Klipper\Component\Resource\Object\ObjectFactoryInterface;
 use Klipper\Module\ProductBundle\Exception\ProductCombinationAlreadyExistingReferenceException;
+use Klipper\Module\ProductBundle\Exception\ProductCombinationAttributeNotFoundException;
 use Klipper\Module\ProductBundle\Exception\ProductCombinationEmptyReferenceException;
 use Klipper\Module\ProductBundle\Exception\ProductCombinationInvalidProductReferenceException;
 use Klipper\Module\ProductBundle\Exception\ProductCombinationNotPersistException;
@@ -129,6 +130,12 @@ class ProductManager implements ProductManagerInterface
         foreach ($parts as $part) {
             if (isset($attributeItemsMap[$part])) {
                 $productCombination->getAttributeItems()->add($attributeItemsMap[$part]);
+            } else {
+                throw new ProductCombinationAttributeNotFoundException(
+                    $this->translator->trans('klipper_product.combination_creator.attribute_not_found', [
+                        '{attribute}' => $part,
+                    ], 'validators')
+                );
             }
         }
 
