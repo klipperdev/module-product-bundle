@@ -6,7 +6,7 @@ attribute.associations.type: Tipo
 # Attribute Item
 attribute_item.name: Valor del atributo
 attribute_item.name.plural: Valores del atributo
-attribute_item.fields.fax: Color
+attribute_item.fields.color: Color
 attribute.associations.attribute: Atributo
 
 # Brand
