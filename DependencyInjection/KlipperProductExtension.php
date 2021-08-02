@@ -29,6 +29,7 @@ class KlipperProductExtension extends Extension
     public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('product_manager.xml');
         $loader->load('price_manager.xml');
         $loader->load('doctrine_subscriber.xml');
         $loader->load('upload_listener.xml');
