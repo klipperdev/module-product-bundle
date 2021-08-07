@@ -171,7 +171,7 @@ abstract class AbstractProduct implements ProductInterface
      * @Assert\Length(max=255)
      *
      * @Serializer\Expose
-     * @Serializer\ReadOnly
+     * @Serializer\ReadOnlyProperty
      * @Serializer\SerializedName("image_url")
      * @Serializer\Type("OrgUrl<'klipper_module_product_apiproduct_downloadimage', 'id=`{{id}}`', 'ext=`{{preferredImageExtension}}`'>")
      */
