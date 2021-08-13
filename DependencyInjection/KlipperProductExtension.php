@@ -33,6 +33,7 @@ class KlipperProductExtension extends Extension
         $loader->load('product_manager.xml');
         $loader->load('price_manager.xml');
         $loader->load('doctrine_subscriber.xml');
+        $loader->load('doctrine_delete_content_config.xml');
         $loader->load('upload_listener.xml');
         $loader->load('api_form.xml');
 
