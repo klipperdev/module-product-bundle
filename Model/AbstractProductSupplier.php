@@ -54,7 +54,9 @@ abstract class AbstractProductSupplier implements ProductSupplierInterface
     protected ?float $quantity = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Module\PartnerBundle\Model\AccountInterface", fetch="EAGER")
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Module\PartnerBundle\Model\AccountInterface"
+     * )
      *
      * @Serializer\Expose
      * @Serializer\MaxDepth(1)

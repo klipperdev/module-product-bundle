@@ -31,13 +31,15 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     use TimestampableTrait;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\PriceListInterface", fetch="EAGER")
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Module\ProductBundle\Model\PriceListInterface"
+     * )
      * @ORM\JoinColumn(onDelete="CASCADE")
      *
      * @Assert\NotBlank
      *
+     * @Serializer\Type("AssociationId")
      * @Serializer\Expose
-     * @Serializer\MaxDepth(1)
      */
     protected ?PriceListInterface $priceList = null;
 
@@ -54,7 +56,9 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     protected ?string $appliedOn = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\ProductRangeInterface", fetch="EAGER")
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Module\ProductBundle\Model\ProductRangeInterface"
+     * )
      *
      * @Assert\Expression(
      *     expression="!(this.getAppliedOn() in ['product_range'] && !value)",
@@ -71,7 +75,9 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     protected ?ProductRangeInterface $productRange = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\ProductInterface", fetch="EAGER")
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Module\ProductBundle\Model\ProductInterface"
+     * )
      *
      * @Assert\Expression(
      *     expression="!(this.getAppliedOn() in ['product', 'product_combination'] && !value)",
@@ -88,7 +94,9 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     protected ?ProductInterface $product = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\ProductCombinationInterface", fetch="EAGER")
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Module\ProductBundle\Model\ProductCombinationInterface"
+     * )
      *
      * @Assert\Expression(
      *     expression="!(this.getAppliedOn() in ['product_combination'] && !value)",
@@ -117,7 +125,9 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     protected ?string $dependingOn = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\ProductRangeInterface", fetch="EAGER")
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Module\ProductBundle\Model\ProductRangeInterface"
+     * )
      *
      * @Assert\Expression(
      *     expression="!(this.getDependingOn() in ['product_range'] && !value)",
@@ -134,7 +144,9 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     protected ?ProductRangeInterface $dependingOnProductRange = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\ProductInterface", fetch="EAGER")
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Module\ProductBundle\Model\ProductInterface"
+     * )
      *
      * @Assert\Expression(
      *     expression="!(this.getDependingOn() in ['product', 'product_combination'] && !value)",
@@ -151,7 +163,9 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     protected ?ProductInterface $dependingOnProduct = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\ProductCombinationInterface", fetch="EAGER")
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Module\ProductBundle\Model\ProductCombinationInterface"
+     * )
      *
      * @Assert\Expression(
      *     expression="!(this.getDependingOn() in ['product_combination'] && !value)",
@@ -252,7 +266,9 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     protected ?string $formulaBasedOn = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\PriceListInterface", fetch="EAGER")
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Module\ProductBundle\Model\PriceListInterface"
+     * )
      *
      * @Assert\Expression(
      *     expression="!(this.getPriceCalculation() not in ['formula'] && null !== value)",

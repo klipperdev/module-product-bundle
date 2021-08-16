@@ -22,8 +22,7 @@ trait ProductCombinationableTrait
 {
     /**
      * @ORM\ManyToOne(
-     *     targetEntity="Klipper\Module\ProductBundle\Model\ProductCombinationInterface",
-     *     fetch="EAGER"
+     *     targetEntity="Klipper\Module\ProductBundle\Model\ProductCombinationInterface"
      * )
      *
      * @Serializer\Expose

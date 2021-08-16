@@ -22,8 +22,7 @@ trait ProductableTrait
 {
     /**
      * @ORM\ManyToOne(
-     *     targetEntity="Klipper\Module\ProductBundle\Model\ProductInterface",
-     *     fetch="EAGER"
+     *     targetEntity="Klipper\Module\ProductBundle\Model\ProductInterface"
      * )
      *
      * @Serializer\Expose

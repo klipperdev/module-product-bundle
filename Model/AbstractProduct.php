@@ -127,7 +127,9 @@ abstract class AbstractProduct implements ProductInterface
     protected ?float $price = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\BrandInterface", fetch="EAGER")
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Module\ProductBundle\Model\BrandInterface"
+     * )
      *
      * @Serializer\Expose
      * @Serializer\MaxDepth(1)
@@ -135,7 +137,9 @@ abstract class AbstractProduct implements ProductInterface
     protected ?BrandInterface $brand = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface", fetch="EAGER")
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Component\DoctrineChoice\Model\ChoiceInterface"
+     * )
      *
      * @EntityDoctrineChoice("product_type")
      *
@@ -145,7 +149,9 @@ abstract class AbstractProduct implements ProductInterface
     protected ?ChoiceInterface $productType = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Klipper\Module\ProductBundle\Model\ProductRangeInterface", fetch="EAGER")
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Module\ProductBundle\Model\ProductRangeInterface"
+     * )
      *
      * @Serializer\Expose
      * @Serializer\MaxDepth(1)
@@ -154,8 +160,7 @@ abstract class AbstractProduct implements ProductInterface
 
     /**
      * @ORM\ManyToOne(
-     *     targetEntity="Klipper\Module\ProductBundle\Model\ProductCombinationInterface",
-     *     fetch="EAGER"
+     *     targetEntity="Klipper\Module\ProductBundle\Model\ProductCombinationInterface"
      * )
      * @ORM\JoinColumn(onDelete="SET NULL")
      *
