@@ -12,6 +12,7 @@
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="klipper_resource.object_factory" />
             <argument type="service" id="translator" />
+            <argument/>
         </service>
 
         <service id="Klipper\Module\ProductBundle\Product\ProductManagerInterface" alias="klipper_module_product.product_manager" />

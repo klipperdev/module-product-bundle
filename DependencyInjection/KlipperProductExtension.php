@@ -29,6 +29,9 @@ class KlipperProductExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container): void
     {
+        $configuration = new Configuration();
+        $config = $this->processConfiguration($configuration, $configs);
+
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('product_manager.xml');
         $loader->load('price_manager.xml');
@@ -37,7 +40,15 @@ class KlipperProductExtension extends Extension
         $loader->load('upload_listener.xml');
         $loader->load('api_form.xml');
 
+        $this->configureProductCombination($container, $config['product_combination']);
+
         ControllerDefinitionUtil::set($container, ApiProductController::class);
         ControllerDefinitionUtil::set($container, ApiProductCombinationController::class);
+    }
+
+    private function configureProductCombination(ContainerBuilder $container, array $config): void
+    {
+        $def = $container->getDefinition('klipper_module_product.product_manager');
+        $def->replaceArgument(3, $config['reference_separator']);
     }
 }
