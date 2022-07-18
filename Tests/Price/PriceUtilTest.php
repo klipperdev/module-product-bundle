@@ -11,6 +11,7 @@
 
 namespace Klipper\Module\ProductBundle\Tests\Price;
 
+use Klipper\Module\ProductBundle\Price\PriceUtil;
 use PHPUnit\Framework\TestCase;
 
 /**
