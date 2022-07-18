@@ -23,6 +23,7 @@ final class ProductListRuleDependingOn implements ChoiceInterface
         return [
             'no_other_product' => 'product_list_rule_depending_on.no_other_product',
             'product_range' => 'product_list_rule_depending_on.product_range',
+            'product_family' => 'product_list_rule_depending_on.product_family',
             'product' => 'product_list_rule_depending_on.product',
             'product_combination' => 'product_list_rule_depending_on.product_combination',
         ];

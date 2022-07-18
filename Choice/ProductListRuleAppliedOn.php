@@ -23,6 +23,7 @@ final class ProductListRuleAppliedOn implements ChoiceInterface
         return [
             'all_products' => 'product_list_rule_applied_on.all_products',
             'product_range' => 'product_list_rule_applied_on.product_range',
+            'product_family' => 'product_list_rule_applied_on.product_family',
             'product' => 'product_list_rule_applied_on.product',
             'product_combination' => 'product_list_rule_applied_on.product_combination',
         ];

@@ -49,6 +49,13 @@ interface PriceListRuleInterface extends
     /**
      * @return static
      */
+    public function setProductFamily(?ProductFamilyInterface $productFamily);
+
+    public function getProductFamily(): ?ProductFamilyInterface;
+
+    /**
+     * @return static
+     */
     public function setProduct(?ProductInterface $product);
 
     public function getProduct(): ?ProductInterface;
@@ -73,6 +80,13 @@ interface PriceListRuleInterface extends
     public function setDependingOnProductRange(?ProductRangeInterface $productRange);
 
     public function getDependingOnProductRange(): ?ProductRangeInterface;
+
+    /**
+     * @return static
+     */
+    public function setDependingOnProductFamily(?ProductFamilyInterface $productFamily);
+
+    public function getDependingOnProductFamily(): ?ProductFamilyInterface;
 
     /**
      * @return static

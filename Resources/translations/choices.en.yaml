@@ -1,12 +1,14 @@
 # Product List Rule Applied On
 product_list_rule_applied_on.all_products: All products
 product_list_rule_applied_on.product_range: Product range
+product_list_rule_applied_on.product_family: Product family
 product_list_rule_applied_on.product: Product
 product_list_rule_applied_on.product_combination: Product combination
 
 # Product List Rule Depending On
 product_list_rule_depending_on.no_other_product: No other product
 product_list_rule_depending_on.product_range: Product range
+product_list_rule_depending_on.product_family: Product family
 product_list_rule_depending_on.product: Product
 product_list_rule_depending_on.product_combination: Product combination
 

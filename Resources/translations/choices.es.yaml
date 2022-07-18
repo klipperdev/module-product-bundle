@@ -1,12 +1,14 @@
 # Product List Rule Applied Choice
 product_list_rule_applied_on.all_products: Todos los productos
 product_list_rule_applied_on.product_range: Gama de producto
+product_list_rule_applied_on.product_family: Familia de producto
 product_list_rule_applied_on.product: Producto
 product_list_rule_applied_on.product_combination: Combinaciones de producto
 
 # Product List Rule Depending Choice
 product_list_rule_depending_on.no_other_product: Ningún otro producto
 product_list_rule_depending_on.product_range: Gama de producto
+product_list_rule_depending_on.product_family: Familia de producto
 product_list_rule_depending_on.product: Producto
 product_list_rule_depending_on.product_combination: Combinación de producto
 

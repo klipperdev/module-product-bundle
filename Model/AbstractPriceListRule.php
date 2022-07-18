@@ -76,6 +76,25 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
 
     /**
      * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Module\ProductBundle\Model\ProductFamilyInterface"
+     * )
+     *
+     * @Assert\Expression(
+     *     expression="!(this.getAppliedOn() in ['product_family'] && !value)",
+     *     message="This value should not be blank."
+     * )
+     * @Assert\Expression(
+     *     expression="!(this.getAppliedOn() in ['all_products'] && value)",
+     *     message="This value should be blank."
+     * )
+     *
+     * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
+     */
+    protected ?ProductFamilyInterface $productFamily = null;
+
+    /**
+     * @ORM\ManyToOne(
      *     targetEntity="Klipper\Module\ProductBundle\Model\ProductInterface"
      * )
      *
@@ -142,6 +161,25 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
      * @Serializer\MaxDepth(1)
      */
     protected ?ProductRangeInterface $dependingOnProductRange = null;
+
+    /**
+     * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Module\ProductBundle\Model\ProductFamilyInterface"
+     * )
+     *
+     * @Assert\Expression(
+     *     expression="!(this.getDependingOn() in ['product_family'] && !value)",
+     *     message="This value should not be blank."
+     * )
+     * @Assert\Expression(
+     *     expression="!(this.getDependingOn() in ['no_other_product'] && value)",
+     *     message="This value should be blank."
+     * )
+     *
+     * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
+     */
+    protected ?ProductFamilyInterface $dependingOnProductFamily = null;
 
     /**
      * @ORM\ManyToOne(
@@ -405,6 +443,18 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
         return $this;
     }
 
+    public function getProductFamily(): ?ProductFamilyInterface
+    {
+        return $this->productFamily;
+    }
+
+    public function setProductFamily(?ProductFamilyInterface $productFamily): self
+    {
+        $this->productFamily = $productFamily;
+
+        return $this;
+    }
+
     public function getProduct(): ?ProductInterface
     {
         return $this->product;
@@ -449,6 +499,18 @@ abstract class AbstractPriceListRule implements PriceListRuleInterface
     public function setDependingOnProductRange(?ProductRangeInterface $productRange): self
     {
         $this->dependingOnProductRange = $productRange;
+
+        return $this;
+    }
+
+    public function getDependingOnProductFamily(): ?ProductFamilyInterface
+    {
+        return $this->dependingOnProductFamily;
+    }
+
+    public function setDependingOnProductFamily(?ProductFamilyInterface $productFamily): self
+    {
+        $this->dependingOnProductFamily = $productFamily;
 
         return $this;
     }
