@@ -13,7 +13,9 @@ namespace Klipper\Module\ProductBundle\Price;
 
 use Klipper\Module\ProductBundle\Model\PriceListInterface;
 use Klipper\Module\ProductBundle\Model\ProductCombinationInterface;
+use Klipper\Module\ProductBundle\Model\ProductFamilyInterface;
 use Klipper\Module\ProductBundle\Model\ProductInterface;
+use Klipper\Module\ProductBundle\Model\ProductRangeInterface;
 
 /**
  * @author François Pluchino <francois.pluchino@klipper.dev>
@@ -27,7 +29,8 @@ interface PriceManagerInterface
      * @param int                                         $quantity                      The quantity to select the good price list rule
      * @param null|int|ProductInterface|string            $dependingOnProduct            The instance or id of the depending on product
      * @param null|int|ProductCombinationInterface|string $dependingOnProductCombination The instance or id of the depending on product combination
-     * @param null|int|ProductCombinationInterface|string $dependingOnProductRange       The instance or id of the depending on product range
+     * @param null|int|ProductFamilyInterface|string      $dependingOnProductFamily      The instance or id of the depending on product family
+     * @param null|int|ProductRangeInterface|string       $dependingOnProductRange       The instance or id of the depending on product range
      */
     public function getProductPrice(
         $product,
@@ -36,6 +39,7 @@ interface PriceManagerInterface
         int $quantity = 0,
         $dependingOnProduct = null,
         $dependingOnProductCombination = null,
+        $dependingOnProductFamily = null,
         $dependingOnProductRange = null
     ): Price;
 }
