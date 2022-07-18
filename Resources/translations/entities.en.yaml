@@ -18,6 +18,10 @@ brand.name.plural: Brands
 product_range.name: Product range
 product_range.name.plural: Product ranges
 
+# Product family
+product_family.name: Product family
+product_family.name.plural: Product families
+
 # Product
 product.name: Product
 product.name.plural: Products
