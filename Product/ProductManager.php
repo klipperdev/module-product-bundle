@@ -115,6 +115,7 @@ class ProductManager implements ProductManagerInterface
 
         /** @var AttributeItemInterface[] $attributeItemsMap */
         $attributeItemsMap = [];
+
         /** @var AttributeItemInterface[] $attributeItems */
         $attributeItems = $this->em->getRepository(AttributeItemInterface::class)->findBy([
             'reference' => $parts,
