@@ -121,6 +121,13 @@ interface ProductInterface extends
     /**
      * @return static
      */
+    public function setProductFamily(?ProductFamilyInterface $productFamily);
+
+    public function getProductFamily(): ?ProductFamilyInterface;
+
+    /**
+     * @return static
+     */
     public function setDefaultProductCombination(?ProductCombinationInterface $defaultProductCombination);
 
     public function getDefaultProductCombination(): ?ProductCombinationInterface;

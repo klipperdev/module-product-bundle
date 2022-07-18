@@ -160,6 +160,16 @@ abstract class AbstractProduct implements ProductInterface
 
     /**
      * @ORM\ManyToOne(
+     *     targetEntity="Klipper\Module\ProductBundle\Model\ProductFamilyInterface"
+     * )
+     *
+     * @Serializer\Expose
+     * @Serializer\MaxDepth(1)
+     */
+    protected ?ProductFamilyInterface $productFamily = null;
+
+    /**
+     * @ORM\ManyToOne(
      *     targetEntity="Klipper\Module\ProductBundle\Model\ProductCombinationInterface"
      * )
      * @ORM\JoinColumn(onDelete="SET NULL")
@@ -322,6 +332,18 @@ abstract class AbstractProduct implements ProductInterface
     public function setProductRange(?ProductRangeInterface $productRange): self
     {
         $this->productRange = $productRange;
+
+        return $this;
+    }
+
+    public function getProductFamily(): ?ProductFamilyInterface
+    {
+        return $this->productFamily;
+    }
+
+    public function setProductFamily(?ProductFamilyInterface $productFamily): self
+    {
+        $this->productFamily = $productFamily;
 
         return $this;
     }
